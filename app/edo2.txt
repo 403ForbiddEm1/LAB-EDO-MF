@@ -1,0 +1,7885 @@
+Correcto. De hecho, si analizamos bien esa imagen, el dashboard está dividido en **5 zonas principales**, no en 3.
+
+# Estructura real de LAB-EDO
+
+```text id="w9gb5r"
+┌───────────────────────────────────────────────┐
+│                   HEADER                      │
+└───────────────────────────────────────────────┘
+
+┌────────────┬───────────────────────┬──────────┐
+│            │                       │          │
+│ IZQUIERDA  │       CENTRO          │ DERECHA  │
+│            │                       │          │
+└────────────┴───────────────────────┴──────────┘
+
+┌───────────────────────────────────────────────┐
+│              PANEL INFERIOR                   │
+└───────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────┐
+│                   FOOTER                      │
+└───────────────────────────────────────────────┘
+```
+
+---
+
+# 1️⃣ HEADER (Superior)
+
+Es el centro de control global.
+
+### Función
+
+Controlar todo el laboratorio.
+
+### Contiene
+
+* Nombre LAB-EDO
+* Logo
+* Cambio de modo
+
+  * Simulación
+  * Interactivo
+* Estado actual
+* Tiempo de simulación
+* Configuración
+* Ayuda
+* Botones de control
+
+### UX
+
+Siempre visible.
+
+Nunca desaparece.
+
+Es la barra de navegación principal.
+
+---
+
+# 2️⃣ PANEL IZQUIERDO
+
+Es el área de selección y consulta.
+
+### Función
+
+Elegir con qué trabajar.
+
+### Secciones
+
+## Biblioteca de Malware
+
+Contiene:
+
+* Lista de malware
+* Clasificación
+* Riesgo
+* Tipo
+
+---
+
+## Biblioteca de Infraestructuras
+
+Contiene:
+
+* Infraestructuras disponibles
+* Complejidad
+* Características generales
+
+---
+
+## Resumen Seleccionado
+
+Muestra:
+
+* Información rápida del malware
+* Información rápida de la infraestructura
+
+Sin abrir nuevas ventanas.
+
+---
+
+### UX
+
+Es una zona de lectura rápida.
+
+Permite configurar la simulación antes de ejecutarla.
+
+---
+
+# 3️⃣ PANEL CENTRAL
+
+Es el corazón de LAB-EDO.
+
+### Función
+
+Visualizar la propagación.
+
+### Contiene
+
+## Parámetros
+
+* β
+* γ
+* N
+* I₀
+* Solver
+
+---
+
+## Simulación de Infraestructura
+
+Aquí ocurre todo.
+
+Muestra:
+
+* Internet
+* Firewall
+* Redes
+* Servidores
+* Bases de datos
+* IoT
+
+---
+
+### Función académica
+
+Visualizar cómo las ecuaciones diferenciales afectan la infraestructura.
+
+---
+
+### UX
+
+Debe ocupar la mayor parte de la pantalla.
+
+Es lo primero que debe llamar la atención.
+
+---
+
+# 4️⃣ PANEL DERECHO
+
+Es el observatorio matemático.
+
+### Función
+
+Mostrar resultados.
+
+### Secciones
+
+## Analytics & Metrics
+
+Contiene:
+
+* S
+* I
+* R
+* R₀
+* Pico de infección
+* Tiempo al pico
+
+---
+
+## Gráfica dinámica
+
+Curvas:
+
+* Susceptibles
+* Infectados
+* Recuperados
+
+---
+
+## Estado global
+
+Muestra:
+
+* Salud de la red
+* Nivel de riesgo
+* Estado general
+
+---
+
+### UX
+
+Es la zona donde el usuario interpreta lo que está ocurriendo.
+
+---
+
+# 5️⃣ PANEL INFERIOR
+
+Este panel es MUY importante porque es donde está la materia de Ecuaciones Diferenciales.
+
+### Función
+
+Explicar matemáticamente la simulación.
+
+---
+
+## Análisis Matemático
+
+Contiene:
+
+### Modelo SIR
+
+* Ecuaciones
+* Variables
+* Parámetros
+
+---
+
+### Método de Euler
+
+* Fórmulas
+* Aproximaciones
+* Resultados
+
+---
+
+### Método RK4
+
+* Cálculos
+* Iteraciones
+* Resultados
+
+---
+
+## Controles de Mitigación
+
+Contiene:
+
+* Firewall
+* Patch
+* Isolation
+* IDS/IPS
+* Backup
+
+---
+
+### UX
+
+Aquí el estudiante entiende por qué la simulación se comporta como se comporta.
+
+No solo ve el resultado.
+
+Ve la matemática detrás.
+
+---
+
+# 6️⃣ FOOTER
+
+Pequeño pero útil.
+
+### Función
+
+Mostrar información técnica.
+
+### Contiene
+
+* Modelo activo
+* Solver activo
+* Paso temporal
+* Precisión
+* Versión
+* Créditos
+
+---
+
+# Jerarquía visual
+
+```text id="q0kikv"
+HEADER
+   ↓
+SIMULACIÓN CENTRAL
+   ↓
+ANALYTICS
+   ↓
+ANÁLISIS MATEMÁTICO
+   ↓
+PANELES LATERALES
+   ↓
+FOOTER
+```
+
+Si alguien abre LAB-EDO por primera vez, sus ojos deberían recorrer la interfaz en este orden:
+
+```text id="bymnq4"
+HEADER
+↓
+SIMULACIÓN CENTRAL
+↓
+GRÁFICA SIR
+↓
+MÉTRICAS
+↓
+ANÁLISIS MATEMÁTICO
+↓
+MALWARE
+↓
+INFRAESTRUCTURAS
+↓
+FOOTER
+```
+
+Porque el protagonista del proyecto no es el malware ni la infraestructura: es la simulación matemática de la propagación utilizando el modelo SIR, Euler y RK4.
+
+
+Claro. Si seguimos **exactamente la estructura de la imagen** y tratamos cada cuadro como un módulo independiente, el wireframe sería algo así:
+
+```text
+┌────────────────────────────┐
+│          MÓDULO 1          │
+│           HEADER           │
+│                            │
+│ LAB-EDO                    │
+│ Modo Simulación            │
+│ Modo Interactivo           │
+│ Estado                     │
+│ Tiempo                     │
+│ enciclopedia               │
+│ Ayuda                      │
+│ Controles                  │
+└────────────────────────────┘
+
+
+┌──────────────┐ ┌─────────────────────────────────────┐ ┌──────────────┐
+│ MÓDULO 2     │ │ MÓDULO 5                            │ │ MÓDULO 8     │
+│ MALWARE      │ │ PARÁMETROS DE SIMULACIÓN            │ │ ANALYTICS    │
+│ LIBRARY      │ │                                     │ │ & METRICS    │
+│              │ │ N                                   │ │              │
+│ Malware      │ │ I₀                                  │ │ Métricas     │
+│ Malware      │ │ β                                   │ │ S            │
+│ Malware      │ │ γ                                   │ │ I            │
+│ Malware      │ │ Solver                              │ │ R            │
+│ Malware      │ │                                     │ │ R₀           │
+│ Malware      │ │                                     │ │ Estadísticas │
+└──────────────┘ └─────────────────────────────────────┘ └──────────────┘
+
+
+
+┌──────────────┐ ┌─────────────────────────────────────┐ ┌──────────────┐
+│ MÓDULO 3     │ │ MÓDULO 6                            │ │ MÓDULO 9     │
+│ INFRAESTRUC- │ │ INFRAESTRUCTURA TECNOLÓGICA         │ │ GRÁFICA SIR  │
+│ TURAS        │ │                                     │ │              │
+│              │ │ Internet                            │ │ S(t)         │
+│ Universidad  │ │ Firewall                            │ │ I(t)         │
+│ Hospital     │ │ DMZ                                 │ │ R(t)         │
+│ Empresa      │ │ Red Corporativa                     │ │              │
+│ Industria    │ │ Servidores                          │ │ Curvas       │
+│ Datacenter   │ │ Bases de Datos                      │ │ dinámicas    │
+│              │ │ IoT                                 │ │              │
+└──────────────┘ └─────────────────────────────────────┘ └──────────────┘
+
+
+
+┌──────────────┐ ┌─────────────────────────────────────┐ ┌──────────────┐
+│ MÓDULO 4     │ │ MÓDULO 7                            │ │ MÓDULO 10    │
+│ RESUMEN      │ │ ANÁLISIS MATEMÁTICO                 │ │ ESTADO DE    │
+│ SELECCIONADO │ │                                     │ │ INFRAESTRUC. │
+│              │ │ Modelo SIR                          │ │              │
+│ Malware      │ │ Euler                               │ │ Salud        │
+│ seleccionado │ │ RK4                                 │ │ Riesgo       │
+│              │ │                                     │ │ Estado       │
+│ Infraestruc. │ │ Ecuaciones                          │ │ General      │
+│ seleccionada │ │ Variables                           │ │              │
+│              │ │ Resultados                          │ │              │
+└──────────────┘ └─────────────────────────────────────┘ └──────────────┘
+
+
+
+                ┌─────────────────────────────────────┐
+                │ MÓDULO 11                          │
+                │ CONTROLES DE MITIGACIÓN            │
+                │                                     │
+                │ Firewall                            │
+                │ Isolation                           │
+                │ Patch                               │
+                │ IDS/IPS                             │
+                │ Backup                              │
+                │                                     │
+                │ Aplicación de defensas              │
+                └─────────────────────────────────────┘
+
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│                               MÓDULO 12                                  │
+│                                FOOTER                                     │
+│                                                                           │
+│ Modelo activo | Solver | Δt | Precisión | Versión | Créditos             │
+└───────────────────────────────────────────────────────────────────────────┘
+```
+
+# Resumen de módulos
+
+| Módulo | Nombre                      | Función                     |
+| ------ | --------------------------- | --------------------------- |
+| 1      | Header                      | Control global              |
+| 2      | Malware Library             | Selección de malware        |
+| 3      | Infraestructuras            | Selección de escenarios     |
+| 4      | Resumen Seleccionado        | Información rápida          |
+| 5      | Parámetros de Simulación    | Configuración matemática    |
+| 6      | Infraestructura Tecnológica | Simulación visual principal |
+| 7      | Análisis Matemático         | SIR, Euler y RK4            |
+| 8      | Analytics & Metrics         | Indicadores numéricos       |
+| 9      | Gráfica SIR                 | Curvas dinámicas            |
+| 10     | Estado de Infraestructura   | Salud global                |
+| 11     | Controles de Mitigación     | Defensa y respuesta         |
+| 12     | Footer                      | Información técnica         |
+
+Así queda prácticamente calcado a la organización de la imagen que mostraste, pero ya traducido a una arquitectura clara para que una IA generadora de aplicaciones pueda construirlo módulo por módulo.
+
+
+Sí, tienes razón. Viendo cómo ha evolucionado LAB-EDO, el botón de configuración sobra. De hecho, casi todo ya está visible en el dashboard.
+
+Yo redefiniría el **Módulo 1** así:
+
+# MÓDULO 1 — HEADER (Centro de Control y Navegación)
+
+## Función General
+
+Es la barra superior permanente del sistema.
+
+Su función es controlar la ejecución de la simulación, mostrar el estado actual del laboratorio y proporcionar acceso a la documentación y ayuda.
+
+No modifica parámetros matemáticos ni infraestructura.
+
+No contiene configuraciones avanzadas.
+
+deja espacio para imagenes de estas
+
+Si quieres que la IA tenga todo listo y el dashboard se vea profesional, yo haría un inventario de imágenes reutilizables. Así no terminas buscando 100 imágenes distintas cuando realmente necesitas unas 20-30 bien escogidas.
+
+# 1. Malware (7 imágenes)
+
+Una por cada malware.
+
+```text id="mals"
+1. Worm
+2. Ransomware
+3. Trojan
+4. Botnet
+5. Rootkit
+6. Spyware
+7. Adware
+```
+
+Estas se usan en:
+
+* Módulo 2
+* Módulo 4
+* Enciclopedia
+
+Total: **7 imágenes**
+
+---
+
+# 2. Infraestructuras (7 imágenes)
+
+```text id="infra"
+1. Small Office
+2. School Network
+3. Hospital
+4. Enterprise Network
+5. Data Center
+6. Smart Factory
+7. Critical Infrastructure
+```
+
+Estas se usan en:
+
+* Módulo 3
+* Módulo 4
+* Enciclopedia
+
+Total: **7 imágenes**
+
+---
+
+# 3. Componentes de Infraestructura (las más importantes)
+
+Para la simulación central.
+
+```text id="comp"
+1. Internet
+2. Firewall
+3. Router
+4. Switch
+5. Servidor
+6. Base de Datos
+7. Workstation / PC
+8. Laptop
+9. IoT Device
+10. Cloud
+11. IDS/IPS
+12. DMZ
+```
+
+Total: **12 íconos/imágenes**
+
+---
+
+# 4. Estados de Nodos
+
+
+---
+
+# 5. Controles de Mitigación
+
+```text id="mit"
+1. Firewall
+2. Isolation
+3. Patch Management
+4. IDS/IPS
+5. Backup Recovery
+```
+
+El firewall e IDS/IPS ya los reutilizas de infraestructura.
+
+Solo necesitarías realmente:
+
+```text id="mit2"
+Isolation
+Patch
+Backup
+```
+
+Total nuevo: **3 imágenes**
+
+---
+
+# 6. Diagramas Matemáticos
+
+Estos son para la Enciclopedia
+
+```text id="math"
+1. Modelo SIR
+2. Euler
+3. RK4
+```
+
+Total: **3 diagramas**
+
+---
+
+# 7. Fondos de Infraestructura
+
+Aquí es donde realmente cambia la apariencia visual.
+
+Yo haría:
+
+```text id="bg"
+1. Oficina
+2. Escuela
+3. Hospital
+4. Empresa
+5. Data Center
+6. Fábrica Inteligente
+7. Infraestructura Crítica
+```
+
+Total: **7 fondos**
+
+---
+
+# Resumen realista
+
+```text id="sum"
+Malware .................. 7
+Infraestructuras ......... 7
+Componentes .............. 12
+Mitigaciones ............. 3
+Diagramas matemáticos .... 3
+```
+
+# Total
+
+```text id="total"
+43 recursos visuales
+```
+
+Pero ojo:
+
+De esos 43, los verdaderamente importantes son:
+
+```text id="imp"
+7 Malware
+7 Infraestructuras
+12 Componentes
+```
+
+O sea:
+
+```text id="imp2"
+26 imágenes
+```
+
+---
+
+## Componentes
+
+### 1. Identidad del Sistema
+
+Muestra:
+
+* Logo de LAB-EDO
+* Nombre del proyecto
+* Subtítulo descriptivo
+
+### Función
+
+Identificar visualmente la aplicación.
+
+---
+
+### 2. Selector de Modo
+
+Permite cambiar entre:
+
+#### Simulación
+
+El sistema ejecuta automáticamente la propagación y las mitigaciones.
+
+#### Interactivo
+
+El usuario toma las decisiones de mitigación.
+
+### Función
+
+Definir quién controla la ejecución.
+
+---
+
+### 3. Estado de Simulación
+
+Muestra:
+
+* Activa
+* Pausada
+* Finalizada
+
+### Función
+
+Informar la condición actual del laboratorio.
+
+---
+
+### 4. Tiempo de Simulación
+
+Muestra:
+
+* Tiempo transcurrido
+* Tiempo total de ejecución
+
+### Función
+
+Permitir el seguimiento temporal del modelo.
+
+---
+
+### 5. Enciclopedia
+
+Ícono:
+
+```text
+⋮
+```
+
+o
+
+```text
+📚
+```
+
+### Función
+
+Abrir el centro documental de LAB-EDO.
+
+Contiene toda la documentación del sistema:
+
+#### Malware
+
+* Definiciones
+* Clasificaciones
+* Propagación
+* Mitigaciones
+
+#### Infraestructuras
+
+* Tipos
+* Características
+* Complejidad
+
+#### Controles de Mitigación
+
+* Firewall
+* Patch
+* IDS/IPS
+* Isolation
+* Backup
+
+#### Modelo Matemático
+
+* Modelo SIR
+* Variables
+* Parámetros
+
+#### Métodos Numéricos
+
+* Euler
+* RK4
+
+#### Métricas
+
+* S
+* I
+* R
+* R₀
+* Pico de infección
+
+#### Nodos
+
+* Tipos
+* Estados
+* Funciones
+
+Es básicamente la documentación completa del proyecto.
+
+---
+
+### 6. Sistema de Ayuda
+
+Ícono:
+
+```text
+?
+```
+
+### Función
+
+Explicar cómo usar LAB-EDO.
+
+Incluye:
+
+* Cómo iniciar simulaciones
+* Cómo elegir malware
+* Cómo seleccionar infraestructura
+* Cómo interpretar gráficas
+* Cómo leer métricas
+* Cómo usar el modo interactivo
+
+La diferencia es:
+
+**Ayuda = Cómo usar la aplicación**
+
+**Enciclopedia = Teoría y documentación técnica**
+
+---
+
+### 7. Controles de Ejecución
+
+Botones:
+
+```text
+▶
+⏸
+■
+```
+
+### Función
+
+* Iniciar
+* Pausar
+* Detener
+* Reiniciar simulación
+
+---
+
+# Resumen
+
+```text
+HEADER
+│
+├── Identidad LAB-EDO
+├── Selector de Modo
+├── Estado
+├── Tiempo
+├── Enciclopedia
+├── Ayuda
+└── Control de Ejecución
+```
+
+Y honestamente, para el alcance de tu proyecto de Ecuaciones Diferenciales, esto tiene más sentido que un menú de configuración tradicional, porque los parámetros importantes (β, γ, N, I₀ y Solver) ya están visibles en el dashboard y no necesitan esconderse detrás de otro menú.
+
+
+# MÓDULO 2 — MALWARE LIBRARY
+
+## Función General
+
+El Módulo 2 representa la colección de amenazas digitales que pueden ser utilizadas dentro de la simulación.
+
+Su función principal es permitir que el usuario seleccione el malware que actuará como agente infeccioso dentro del modelo SIR.
+
+En términos matemáticos, el malware determina el comportamiento de la propagación, afectando parámetros como:
+
+* β (tasa de infección)
+* γ (tasa de recuperación)
+* R₀ (capacidad de propagación)
+
+Cada malware representa un comportamiento epidemiológico diferente.
+
+---
+
+# ¿Qué debe mostrar el módulo?
+
+Visualmente solo debería mostrar:
+
+```text
+Malware Library
+
+○ Worm
+○ Ransomware
+○ Trojan
+○ Botnet
+○ Rootkit
+○ Spyware
+○ Adware
+```
+
+Al seleccionar uno:
+
+```text
+Nombre
+Nivel de riesgo
+Nivel de infección
+Resumen corto
+```
+
+Y debajo:
+
+```text
+Current Malware:
+Worm
+
+Highly self-replicating malware.
+Spreads automatically across network nodes.
+```
+
+La explicación completa estaría en la Enciclopedia.
+
+---
+
+# MALWARE 1 — WORM
+
+## Definición
+
+Un Worm es un malware autorreplicante capaz de propagarse automáticamente entre sistemas sin necesidad de intervención humana.
+
+A diferencia de otros malware, no necesita que el usuario abra archivos o haga clic en enlaces.
+
+---
+
+## Cómo funciona
+
+El Worm busca dispositivos vulnerables.
+
+Cuando encuentra uno:
+
+```text
+Nodo A
+↓
+Nodo B
+↓
+Nodo C
+↓
+Nodo D
+```
+
+se replica automáticamente.
+
+---
+
+## Características
+
+* Muy rápido
+* Alta propagación
+* Automatizado
+* Poco sigiloso
+* Muy agresivo
+
+---
+
+## Nivel de infección
+
+```text
+Muy Alto
+```
+
+---
+
+## β sugerido
+
+```text
+1.8 – 3.5
+```
+
+---
+
+## γ sugerido
+
+```text
+0.1 – 0.5
+```
+
+---
+
+## Mitigaciones más efectivas
+
+* Isolation
+* Firewall
+* Patch Management
+
+---
+
+## Qué enseña en LAB-EDO
+
+Cómo una infección puede crecer exponencialmente cuando existe una alta conectividad entre nodos.
+
+---
+
+# MALWARE 2 — RANSOMWARE
+
+## Definición
+
+Malware diseñado para cifrar archivos y sistemas con el objetivo de exigir un pago para recuperar el acceso.
+
+---
+
+## Cómo funciona
+
+```text
+Infección
+↓
+Cifrado
+↓
+Bloqueo
+↓
+Extorsión
+```
+
+---
+
+## Características
+
+* Alto impacto económico
+* Propagación moderada
+* Muy destructivo
+* Puede afectar infraestructuras críticas
+
+---
+
+## Nivel de infección
+
+```text
+Alto
+```
+
+---
+
+## β sugerido
+
+```text
+0.8 – 1.5
+```
+
+---
+
+## γ sugerido
+
+```text
+0.2 – 0.8
+```
+
+---
+
+## Mitigaciones más efectivas
+
+* Backup Recovery
+* Patch Management
+* Isolation
+
+---
+
+## Qué enseña en LAB-EDO
+
+Que una infección no necesita propagarse extremadamente rápido para causar daños severos.
+
+---
+
+# MALWARE 3 — TROJAN
+
+## Definición
+
+Programa malicioso que se presenta como software legítimo para engañar al usuario.
+
+---
+
+## Cómo funciona
+
+```text
+Usuario confía
+↓
+Instalación
+↓
+Acceso al sistema
+↓
+Ejecución maliciosa
+```
+
+---
+
+## Características
+
+* Requiere interacción humana
+* Propagación limitada
+* Muy común
+* Difícil de detectar inicialmente
+
+---
+
+## Nivel de infección
+
+```text
+Medio
+```
+
+---
+
+## β sugerido
+
+```text
+0.4 – 1.0
+```
+
+---
+
+## γ sugerido
+
+```text
+0.3 – 0.8
+```
+
+---
+
+## Mitigaciones más efectivas
+
+* IDS/IPS
+* Antivirus
+* Educación del usuario
+
+---
+
+## Qué enseña en LAB-EDO
+
+Cómo los errores humanos afectan la propagación de amenazas.
+
+---
+
+# MALWARE 4 — BOTNET
+
+## Definición
+
+Red de dispositivos comprometidos controlados remotamente por un atacante.
+
+---
+
+## Cómo funciona
+
+```text
+Infección
+↓
+Dispositivo Zombie
+↓
+Servidor de Control
+↓
+Botnet
+```
+
+---
+
+## Características
+
+* Propagación continua
+* Coordinación centralizada
+* Utilizada para ataques masivos
+
+---
+
+## Nivel de infección
+
+```text
+Alto
+```
+
+---
+
+## β sugerido
+
+```text
+1.2 – 2.0
+```
+
+---
+
+## γ sugerido
+
+```text
+0.2 – 0.6
+```
+
+---
+
+## Mitigaciones más efectivas
+
+* Firewall
+* IDS/IPS
+* Segmentación
+
+---
+
+## Qué enseña en LAB-EDO
+
+Cómo las redes comprometidas pueden amplificar ataques distribuidos.
+
+---
+
+# MALWARE 5 — ROOTKIT
+
+## Definición
+
+Malware diseñado para ocultar la presencia de otros componentes maliciosos dentro del sistema.
+
+---
+
+## Cómo funciona
+
+Opera a bajo nivel del sistema.
+
+Modifica procesos internos para evitar detección.
+
+---
+
+## Características
+
+* Muy sigiloso
+* Persistente
+* Difícil de eliminar
+* Propagación baja
+
+---
+
+## Nivel de infección
+
+```text
+Medio
+```
+
+---
+
+## β sugerido
+
+```text
+0.2 – 0.8
+```
+
+---
+
+## γ sugerido
+
+```text
+0.1 – 0.4
+```
+
+---
+
+## Mitigaciones más efectivas
+
+* IDS/IPS
+* Análisis forense
+* Reinstalación controlada
+
+---
+
+## Qué enseña en LAB-EDO
+
+La diferencia entre propagación y persistencia.
+
+---
+
+# MALWARE 6 — SPYWARE
+
+## Definición
+
+Malware diseñado para recopilar información sin autorización.
+
+---
+
+## Cómo funciona
+
+Monitorea:
+
+* Teclado
+* Archivos
+* Navegación
+* Credenciales
+
+---
+
+## Características
+
+* Muy discreto
+* Poco destructivo
+* Alto riesgo de privacidad
+
+---
+
+## Nivel de infección
+
+```text
+Medio
+```
+
+---
+
+## β sugerido
+
+```text
+0.3 – 0.9
+```
+
+---
+
+## γ sugerido
+
+```text
+0.3 – 0.7
+```
+
+---
+
+## Mitigaciones más efectivas
+
+* IDS/IPS
+* Antivirus
+* Monitoreo continuo
+
+---
+
+## Qué enseña en LAB-EDO
+
+Cómo amenazas silenciosas pueden mantenerse activas durante largos periodos.
+
+---
+
+# MALWARE 7 — ADWARE
+
+## Definición
+
+Software que muestra publicidad no deseada y recopila datos de comportamiento.
+
+---
+
+## Cómo funciona
+
+```text
+Instalación
+↓
+Publicidad
+↓
+Seguimiento
+↓
+Monetización
+```
+
+---
+
+## Características
+
+* Baja peligrosidad
+* Alta presencia
+* Fácil eliminación
+
+---
+
+## Nivel de infección
+
+```text
+Bajo
+```
+
+---
+
+## β sugerido
+
+```text
+0.2 – 0.6
+```
+
+---
+
+## γ sugerido
+
+```text
+0.5 – 1.0
+```
+
+---
+
+## Mitigaciones más efectivas
+
+* Antivirus
+* Limpieza de software
+* Educación del usuario
+
+---
+
+## Qué enseña en LAB-EDO
+
+Escenarios de propagación simples para pruebas iniciales.
+
+---
+
+# Información mostrada al seleccionar un malware
+
+Cuando el usuario selecciona cualquier malware, el módulo debería actualizar automáticamente:
+
+```text
+Malware Name
+
+Risk Level
+
+Infectivity Level
+
+Recommended β
+
+Recommended γ
+
+Primary Attack Vector
+
+Recommended Mitigations
+
+Short Description
+```
+
+Y toda la teoría extensa, ejemplos reales, funcionamiento detallado, impacto, historia y referencias quedarían disponibles desde la **Enciclopedia**, para no sobrecargar el dashboard principal.
+
+# MÓDULO 3 — INFRAESTRUCTURAS TECNOLÓGICAS
+
+## Función General
+
+El Módulo 3 representa el entorno donde ocurre la propagación del malware.
+
+Mientras el malware define **qué amenaza se propaga**, la infraestructura define **dónde se propaga**.
+
+Su función es proporcionar distintos escenarios tecnológicos con arquitecturas, vulnerabilidades y niveles de complejidad diferentes para observar cómo cambia el comportamiento del modelo SIR.
+
+En términos matemáticos, la infraestructura afecta indirectamente:
+
+* Velocidad de propagación
+* Número de nodos susceptibles
+* Efectividad de mitigaciones
+* Tiempo de recuperación
+* Topología de la red
+
+---
+
+# ¿Qué debe mostrar el módulo?
+
+Visualmente solo debería mostrar:
+
+```text
+Infrastructure Library
+
+○ Small Office
+○ School Network
+○ Hospital
+○ Enterprise Network
+○ Data Center
+○ Smart Factory
+○ Critical Infrastructure
+```
+
+---
+
+Al seleccionar una:
+
+```text
+Nombre
+
+Nivel de complejidad
+
+Cantidad de nodos
+
+Resumen corto
+```
+
+---
+
+Debajo:
+
+```text
+Current Infrastructure
+
+Hospital
+
+Critical systems with
+high network dependency
+and sensitive devices.
+```
+
+Toda la documentación completa estará en la Enciclopedia.
+
+---
+
+# INFRAESTRUCTURA 1 — SMALL OFFICE
+
+## Definición
+
+Representa una pequeña empresa u oficina con pocos dispositivos y una arquitectura simple.
+
+---
+
+## Características
+
+* Pocos usuarios
+* Pocos servidores
+* Baja segmentación
+* Seguridad básica
+* Infraestructura sencilla
+
+---
+
+## Complejidad
+
+```text
+Baja
+```
+
+---
+
+## Nodos
+
+```text
+20 - 50
+```
+
+---
+
+## Vulnerabilidades
+
+* Contraseñas débiles
+* Equipos sin actualizar
+* Segmentación mínima
+
+---
+
+## Dificultad
+
+```text
+Principiante
+```
+
+---
+
+## Qué enseña en LAB-EDO
+
+Introducir los conceptos básicos de propagación.
+
+---
+
+# INFRAESTRUCTURA 2 — SCHOOL NETWORK
+
+## Definición
+
+Representa una institución educativa con gran cantidad de usuarios conectados simultáneamente.
+
+---
+
+## Características
+
+* Muchos usuarios
+* Equipos compartidos
+* Accesos frecuentes
+* Tráfico elevado
+
+---
+
+## Complejidad
+
+```text
+Media
+```
+
+---
+
+## Nodos
+
+```text
+100 - 500
+```
+
+---
+
+## Vulnerabilidades
+
+* Equipos públicos
+* Usuarios poco entrenados
+* Alta rotación de dispositivos
+
+---
+
+## Dificultad
+
+```text
+Intermedia
+```
+
+---
+
+## Qué enseña en LAB-EDO
+
+Cómo el comportamiento humano aumenta la propagación.
+
+---
+
+# INFRAESTRUCTURA 3 — HOSPITAL
+
+## Definición
+
+Infraestructura crítica dedicada a la atención médica.
+
+---
+
+## Características
+
+* Equipos médicos conectados
+* Sistemas de pacientes
+* Alta dependencia tecnológica
+* Disponibilidad crítica
+
+---
+
+## Complejidad
+
+```text
+Alta
+```
+
+---
+
+## Nodos
+
+```text
+300 - 1000
+```
+
+---
+
+## Vulnerabilidades
+
+* Equipos antiguos
+* Sistemas heredados
+* Dispositivos IoT médicos
+
+---
+
+## Dificultad
+
+```text
+Alta
+```
+
+---
+
+## Qué enseña en LAB-EDO
+
+El impacto de una infección en sistemas críticos.
+
+---
+
+# INFRAESTRUCTURA 4 — ENTERPRISE NETWORK
+
+## Definición
+
+Gran red corporativa con múltiples departamentos y segmentación avanzada.
+
+---
+
+## Características
+
+* Servidores dedicados
+* VLANs
+* Múltiples sedes
+* Políticas de seguridad
+
+---
+
+## Complejidad
+
+```text
+Alta
+```
+
+---
+
+## Nodos
+
+```text
+500 - 3000
+```
+
+---
+
+## Vulnerabilidades
+
+* Configuraciones complejas
+* Superficie de ataque amplia
+* Errores de segmentación
+
+---
+
+## Dificultad
+
+```text
+Alta
+```
+
+---
+
+## Qué enseña en LAB-EDO
+
+Cómo las redes grandes pueden contener o amplificar infecciones.
+
+---
+
+# INFRAESTRUCTURA 5 — DATA CENTER
+
+## Definición
+
+Centro especializado para procesamiento y almacenamiento masivo de datos.
+
+---
+
+## Características
+
+* Gran cantidad de servidores
+* Alta redundancia
+* Infraestructura profesional
+* Servicios críticos
+
+---
+
+## Complejidad
+
+```text
+Muy Alta
+```
+
+---
+
+## Nodos
+
+```text
+1000 - 10000
+```
+
+---
+
+## Vulnerabilidades
+
+* Servicios expuestos
+* Alta interconectividad
+* Dependencia operativa
+
+---
+
+## Dificultad
+
+```text
+Avanzada
+```
+
+---
+
+## Qué enseña en LAB-EDO
+
+Cómo se comportan las infecciones en sistemas masivos.
+
+---
+
+# INFRAESTRUCTURA 6 — SMART FACTORY
+
+## Definición
+
+Fábrica inteligente con dispositivos industriales conectados mediante IoT.
+
+---
+
+## Características
+
+* Sensores
+* Robots
+* PLC
+* Sistemas industriales
+
+---
+
+## Complejidad
+
+```text
+Muy Alta
+```
+
+---
+
+## Nodos
+
+```text
+500 - 5000
+```
+
+---
+
+## Vulnerabilidades
+
+* Protocolos industriales
+* Equipos antiguos
+* IoT masivo
+
+---
+
+## Dificultad
+
+```text
+Avanzada
+```
+
+---
+
+## Qué enseña en LAB-EDO
+
+Cómo una infección puede afectar procesos físicos reales.
+
+---
+
+# INFRAESTRUCTURA 7 — CRITICAL INFRASTRUCTURE
+
+## Definición
+
+Infraestructura nacional estratégica.
+
+---
+
+Ejemplos:
+
+* Energía
+* Agua
+* Telecomunicaciones
+* Transporte
+
+---
+
+## Características
+
+* Máxima criticidad
+* Alta disponibilidad
+* Sistemas híbridos
+* Dependencia nacional
+
+---
+
+## Complejidad
+
+```text
+Extrema
+```
+
+---
+
+## Nodos
+
+```text
+5000+
+```
+
+---
+
+## Vulnerabilidades
+
+* Sistemas heredados
+* Múltiples tecnologías
+* Integraciones complejas
+
+---
+
+## Dificultad
+
+```text
+Experto
+```
+
+---
+
+## Qué enseña en LAB-EDO
+
+Las consecuencias sistémicas de una propagación descontrolada.
+
+---
+
+# Información mostrada al seleccionar una infraestructura
+
+Cuando el usuario selecciona una infraestructura, el módulo debe actualizar:
+
+```text
+Infrastructure Name
+
+Complexity Level
+
+Number of Nodes
+
+Network Segmentation
+
+Initial Security Level
+
+Primary Vulnerabilities
+
+Recommended Difficulty
+
+Short Description
+```
+
+---
+
+# Información adicional para la simulación
+
+Cada infraestructura debería tener parámetros internos que el usuario no ve directamente:
+
+### Seguridad inicial
+
+Determina qué tan protegida comienza la red.
+
+### Segmentación
+
+Determina qué tan fácil es que el malware pase de un segmento a otro.
+
+### Resiliencia
+
+Capacidad de recuperación natural de la infraestructura.
+
+### Criticidad
+
+Impacto que tiene una infección sobre la operación.
+
+### Densidad de conexiones
+
+Cantidad de conexiones entre nodos.
+
+---
+
+# Relación con el modelo matemático
+
+El malware responde a la pregunta:
+
+```text
+¿Qué se propaga?
+```
+
+La infraestructura responde a:
+
+```text
+¿Dónde se propaga?
+```
+
+Y juntos determinan el comportamiento del modelo SIR, Euler y RK4 que se visualizará en los módulos matemáticos y analíticos de LAB-EDO.
+
+
+# MÓDULO 4 — RESUMEN SELECCIONADO (Context Panel)
+
+## Función General
+
+El Módulo 4 actúa como un **panel de contexto rápido**.
+
+Su función es mostrar de forma resumida toda la información relevante de los elementos seleccionados por el usuario sin necesidad de abrir la Enciclopedia.
+
+Es el módulo que responde constantemente:
+
+```text id="91tfyo"
+¿Qué estoy simulando ahora mismo?
+```
+
+---
+
+# Objetivo dentro de LAB-EDO
+
+Durante una simulación el usuario puede olvidar:
+
+* Qué malware eligió
+* Qué infraestructura eligió
+* Qué nivel de riesgo tiene
+* Qué tan difícil es el escenario
+
+Por eso este módulo mantiene visible la información más importante.
+
+---
+
+# ¿Qué contiene?
+
+Se divide en dos secciones.
+
+---
+
+# Sección 1
+
+## Malware Seleccionado
+
+Muestra:
+
+### Nombre
+
+```text id="8wg6hn"
+Worm
+```
+
+---
+
+### Tipo
+
+```text id="2nnx4h"
+Autorreplicante
+```
+
+---
+
+### Nivel de Riesgo
+
+```text id="gzvf8e"
+Crítico
+```
+
+---
+
+### Nivel de Infección
+
+```text id="dl2yjm"
+Muy Alto
+```
+
+---
+
+### Propagación
+
+```text id="7a6mql"
+Automática
+```
+
+---
+
+### Descripción Resumida
+
+Máximo 2 o 3 líneas.
+
+Por ejemplo:
+
+```text id="hn5txp"
+Malware capaz de replicarse
+automáticamente entre nodos
+sin intervención humana.
+```
+
+---
+
+### Mitigaciones Recomendadas
+
+Pequeños indicadores:
+
+```text id="j9qyzh"
+Firewall
+Isolation
+Patch
+```
+
+---
+
+### Parámetros Sugeridos
+
+```text id="ax1ntz"
+β recomendado
+
+γ recomendado
+```
+
+---
+
+# Sección 2
+
+## Infraestructura Seleccionada
+
+Muestra:
+
+### Nombre
+
+```text id="1lj30w"
+Hospital
+```
+
+---
+
+### Nivel de Complejidad
+
+```text id="p7g2im"
+Alta
+```
+
+---
+
+### Cantidad de Nodos
+
+```text id="mkx4n8"
+800
+```
+
+---
+
+### Nivel de Seguridad Inicial
+
+```text id="e8z6gj"
+Medio
+```
+
+---
+
+### Criticidad
+
+```text id="71wqfg"
+Muy Alta
+```
+
+---
+
+### Descripción Resumida
+
+Por ejemplo:
+
+```text id="t1xw6y"
+Infraestructura médica con
+sistemas críticos y alta
+dependencia tecnológica.
+```
+
+---
+
+### Vulnerabilidad Principal
+
+```text id="rfq14k"
+Equipos heredados
+IoT médico
+```
+
+---
+
+# Indicador de Compatibilidad
+
+Esta es una idea muy buena para LAB-EDO.
+
+El sistema puede mostrar:
+
+```text id="b43evw"
+Threat Match
+```
+
+---
+
+Ejemplo:
+
+```text id="3swg9x"
+Worm
++
+Hospital
+```
+
+---
+
+Resultado:
+
+```text id="wmffv4"
+Alto Riesgo
+```
+
+---
+
+o
+
+```text id="jqq8gg"
+Ransomware
++
+Datacenter
+```
+
+---
+
+Resultado:
+
+```text id="py13hb"
+Riesgo Medio
+```
+
+---
+
+Esto ayuda al usuario a entender la peligrosidad del escenario antes de iniciar.
+
+---
+
+# Estado de Preparación
+
+También puede incluir:
+
+```text id="98h1de"
+Simulation Readiness
+```
+
+---
+
+Verifica:
+
+✅ Malware seleccionado
+
+✅ Infraestructura seleccionada
+
+✅ Parámetros configurados
+
+✅ Solver seleccionado
+
+---
+
+Cuando todo está listo:
+
+```text id="9x4zdx"
+Ready to Start
+```
+
+---
+
+# Relación con otros módulos
+
+Recibe información de:
+
+### Módulo 2
+
+Biblioteca de Malware
+
+---
+
+### Módulo 3
+
+Infraestructuras
+
+---
+
+### Módulo 5
+
+Parámetros de Simulación
+
+---
+
+Pero no modifica nada.
+
+Solo informa.
+
+---
+
+# Función Académica
+
+Este módulo ayuda a relacionar:
+
+```text id="jlwmxw"
+Amenaza
++
+Entorno
+```
+
+antes de que el estudiante observe la propagación matemática.
+
+Permite entender rápidamente el contexto de la simulación sin tener que consultar continuamente la Enciclopedia.
+
+---
+
+# Resumen
+
+```text id="fppap6"
+MÓDULO 4
+
+RESUMEN SELECCIONADO
+
+Función:
+Mostrar un resumen rápido y contextual
+del malware, la infraestructura y el
+escenario actual de simulación.
+
+No realiza cálculos.
+No modifica parámetros.
+No ejecuta acciones.
+
+Solo informa al usuario sobre
+qué está simulando exactamente.
+```
+
+Este módulo es pequeño visualmente, pero es muy útil porque mantiene siempre visible el contexto completo del experimento que se está ejecutando.
+
+
+# MÓDULO 5 — PARÁMETROS DE SIMULACIÓN
+
+---
+
+# Función General
+
+El Módulo 5 es el centro de configuración matemática de LAB-EDO.
+
+Su función es permitir que el usuario establezca las condiciones iniciales del experimento antes de iniciar la simulación.
+
+Mientras el malware responde:
+
+```text
+¿Qué se propaga?
+```
+
+Y la infraestructura responde:
+
+```text
+¿Dónde se propaga?
+```
+
+Este módulo responde:
+
+```text
+¿Cómo se propagará?
+```
+
+---
+
+# Importancia dentro del proyecto
+
+Este módulo es el encargado de alimentar:
+
+* Modelo SIR.
+* Método de Euler.
+* Método RK4.
+* Simulación de nodos.
+* Gráficas.
+* Métricas.
+
+Todo lo que ocurra en la simulación nace aquí.
+
+---
+
+# Diseño General
+
+```text
+┌─────────────────────────────┐
+│ SIMULATION PARAMETERS       │
+├─────────────────────────────┤
+│                             │
+│ Population (N)              │
+│ ─────●────────────          │
+│                             │
+│ Initial Infected (I₀)       │
+│ ─────●────────────          │
+│                             │
+│ Infection Rate (β)          │
+│ ─────●────────────          │
+│                             │
+│ Recovery Rate (γ)           │
+│ ─────●────────────          │
+│                             │
+│ Time Step (Δt)              │
+│ ─────●────────────          │
+│                             │
+│ Solver                      │
+│ ○ Euler                     │
+│ ○ RK4                       │
+│                             │
+└─────────────────────────────┘
+```
+
+Todo se modifica mediante sliders.
+
+No hay ventanas emergentes.
+
+No hay configuraciones ocultas.
+
+---
+
+# PARÁMETRO 1 — Población Total (N)
+
+## Definición
+
+Representa la cantidad total de nodos que forman la infraestructura.
+
+Los nodos pueden ser:
+
+* Computadoras.
+* Servidores.
+* Bases de datos.
+* IoT.
+* Equipos de usuario.
+
+---
+
+## Función
+
+Determinar el tamaño del sistema.
+
+---
+
+## Efecto
+
+Un valor alto de N produce:
+
+* Más nodos.
+* Mayor propagación.
+* Simulaciones más complejas.
+
+---
+
+Ejemplo:
+
+```text
+N = 50
+```
+
+Pequeña oficina.
+
+```text
+N = 1000
+```
+
+Hospital.
+
+```text
+N = 5000
+```
+
+Datacenter.
+
+---
+
+# PARÁMETRO 2 — Infectados Iniciales (I₀)
+
+## Definición
+
+Cantidad de nodos que comienzan infectados.
+
+---
+
+## Función
+
+Representar el origen del brote.
+
+---
+
+## Efecto
+
+I₀ pequeño:
+
+```text
+1 nodo infectado.
+```
+
+La infección inicia lentamente.
+
+---
+
+I₀ grande:
+
+```text
+20 nodos infectados.
+```
+
+La propagación comienza agresivamente.
+
+---
+
+# PARÁMETRO 3 — β (Beta)
+
+## Definición
+
+Tasa de infección.
+
+Representa la probabilidad de que un nodo infectado contagie a otro.
+
+---
+
+## Función
+
+Controlar la velocidad de propagación.
+
+---
+
+## Valores bajos
+
+```text
+β = 0.2
+```
+
+Propagación lenta.
+
+---
+
+## Valores altos
+
+```text
+β = 2.5
+```
+
+Propagación rápida.
+
+---
+
+# Influencia del malware
+
+Worm:
+
+```text
+β alto.
+```
+
+Trojan:
+
+```text
+β medio.
+```
+
+Adware:
+
+```text
+β bajo.
+```
+
+---
+
+# PARÁMETRO 4 — γ (Gamma)
+
+## Definición
+
+Tasa de recuperación.
+
+Representa la velocidad con la que los nodos dejan de estar infectados.
+
+---
+
+## Función
+
+Controlar la recuperación.
+
+---
+
+## Valores bajos
+
+```text
+γ = 0.1
+```
+
+Recuperación lenta.
+
+---
+
+## Valores altos
+
+```text
+γ = 0.8
+```
+
+Recuperación rápida.
+
+---
+
+# Influencia de las mitigaciones
+
+Firewall.
+
+Patch.
+
+Isolation.
+
+Backup.
+
+Todas aumentan γ.
+
+---
+
+# PARÁMETRO 5 — Δt (Delta t)
+
+## Definición
+
+Paso temporal.
+
+Representa el tamaño del intervalo utilizado por los métodos numéricos.
+
+---
+
+## Función
+
+Controlar la precisión.
+
+---
+
+Δt pequeño:
+
+```text
+Mayor precisión.
+```
+
+---
+
+Δt grande:
+
+```text
+Menor precisión.
+Mayor velocidad.
+```
+
+---
+
+# PARÁMETRO 6 — Solver
+
+Permite seleccionar el método numérico.
+
+---
+
+## Método de Euler
+
+### Características
+
+* Simple.
+* Rápido.
+* Fácil de entender.
+
+---
+
+### Ventajas
+
+* Bajo costo computacional.
+
+---
+
+### Desventajas
+
+* Menor precisión.
+
+---
+
+## Método RK4
+
+### Características
+
+* Cuarto orden.
+* Alta precisión.
+* Mayor estabilidad.
+
+---
+
+### Ventajas
+
+* Resultados más exactos.
+
+---
+
+### Desventajas
+
+* Más cálculos.
+
+---
+
+# Comparación de métodos
+
+LAB-EDO puede permitir:
+
+```text
+☑ Compare Solvers
+```
+
+Mostrando:
+
+* Euler.
+* RK4.
+
+Simultáneamente.
+
+---
+
+# Influencia sobre la simulación
+
+El módulo modifica:
+
+| Parámetro | Afecta                    |
+| --------- | ------------------------- |
+| N         | Cantidad de nodos         |
+| I₀        | Inicio del brote          |
+| β         | Velocidad de infección    |
+| γ         | Velocidad de recuperación |
+| Δt        | Precisión                 |
+| Solver    | Método numérico           |
+
+---
+
+# Relación con otros módulos
+
+### Recibe información de:
+
+* Módulo 2 (Malware)
+* Módulo 3 (Infraestructura)
+
+---
+
+### Envía información a:
+
+* Módulo 6 (Simulación)
+* Módulo 7 (Análisis Matemático)
+* Módulo 8 (Analytics)
+* Módulo 9 (Gráficas)
+
+---
+
+# Espacios para imágenes
+
+Aquí prácticamente no existen imágenes obligatorias.
+
+Sin embargo, puede dejarse un espacio opcional.
+
+```text
+┌────────────────────────┐
+│ NETWORK COMPONENTS     │
+│                        │
+│ Firewall               │
+│ Server                 │
+│ Database               │
+│ IoT                    │
+│ Router                 │
+└────────────────────────┘
+```
+
+---
+
+Imágenes reutilizables:
+
+* Firewall.
+* Servidor.
+* Base de datos.
+* IoT.
+* Router.
+
+---
+
+# Función Académica
+
+Este módulo permite que el estudiante comprenda cómo pequeños cambios en los parámetros producen comportamientos completamente distintos en la propagación.
+
+Por ejemplo:
+
+```text
+β ↑
+```
+
+Mayor infección.
+
+```text
+γ ↑
+```
+
+Mayor recuperación.
+
+```text
+N ↑
+```
+
+Mayor propagación.
+
+```text
+I₀ ↑
+```
+
+Brote más agresivo.
+
+---
+
+# Resumen
+
+```text
+MÓDULO 5
+
+SIMULATION PARAMETERS
+
+Función:
+Configurar las condiciones iniciales
+del modelo matemático.
+
+Controla:
+
+• Población (N)
+• Infectados iniciales (I₀)
+• Tasa de infección (β)
+• Tasa de recuperación (γ)
+• Paso temporal (Δt)
+• Método numérico
+
+Es el módulo que alimenta todo el
+comportamiento matemático de LAB-EDO.
+```
+
+Este módulo es, básicamente, el laboratorio de ecuaciones diferenciales del proyecto.
+
+
+# MÓDULO 6 — NETWORK SIMULATION
+
+---
+
+# Función General
+
+El Módulo 6 es el núcleo visual de LAB-EDO.
+
+Aquí ocurre la propagación del malware sobre la infraestructura seleccionada mientras los modelos matemáticos SIR, Euler y RK4 se ejecutan en segundo plano.
+
+Este módulo responde:
+
+```text
+¿Qué está ocurriendo dentro de la red?
+```
+
+---
+
+# Objetivos
+
+* Visualizar la propagación.
+* Observar la infección.
+* Ver la recuperación.
+* Analizar la eficacia de mitigaciones.
+* Relacionar las ecuaciones con una red real.
+
+---
+
+# Componentes del módulo
+
+---
+
+## 1. Nodos
+
+Los nodos representan dispositivos.
+
+Pueden ser:
+
+* Servidores.
+* PCs.
+* IoT.
+* Bases de datos.
+* Equipos médicos.
+* PLC industriales.
+* Equipos críticos.
+
+---
+
+## Estados de nodos
+
+No necesitan imágenes.
+
+La IA los genera.
+
+```text
+🟦 Susceptible (S)
+
+🟥 Infectado (I)
+
+🟩 Recuperado (R)
+
+🟨 Aislado
+```
+
+---
+
+## Animaciones
+
+* Pulso rojo → infección.
+* Pulso verde → recuperación.
+* Pulso amarillo → aislamiento.
+* Conexiones iluminadas.
+
+---
+
+# Información al pasar el ratón
+
+```text
+SERVER-03
+
+Estado: Infectado
+
+Tiempo infectado: 24 s
+
+Probabilidad de recuperación: 68%
+
+Servicios:
+• Database
+• DNS
+• File Server
+```
+
+---
+
+# COMPONENTES VISUALES
+
+Estas sí llevan imágenes.
+
+```text
+🌐 Internet
+
+☁ Cloud
+
+🛡 Firewall
+
+📡 Router
+
+🔀 Switch
+
+🖥 Server
+
+🗄 Database
+
+📱 IoT
+
+💻 Workstation
+```
+
+---
+
+# INFRAESTRUCTURA 1 — SMALL OFFICE
+
+---
+
+## Función
+
+Escenario básico.
+
+Pocos nodos.
+
+Ideal para pruebas.
+
+---
+
+## Diseño
+
+```text
+         🌐
+
+          │
+
+       🛡 Firewall
+
+          │
+
+        Router
+
+     ┌────┴────┐
+
+   PC1       PC2
+
+     │         │
+
+   Laptop   Printer
+```
+
+---
+
+## Nodos
+
+5–20.
+
+---
+
+## Dificultad
+
+Baja.
+
+---
+
+## Vulnerabilidades
+
+* Contraseñas débiles.
+* Sin segmentación.
+* Equipos antiguos.
+
+---
+
+# INFRAESTRUCTURA 2 — SCHOOL NETWORK
+
+---
+
+## Diseño
+
+```text
+           🌐
+
+            │
+
+        Firewall
+
+            │
+
+          Router
+
+      ┌─────┼─────┐
+
+  Lab 1   Lab 2   Admin
+
+    │       │       │
+
+ PCs     PCs    Server
+```
+
+---
+
+## Nodos
+
+100–300.
+
+---
+
+## Características
+
+* Muchos usuarios.
+* Equipos compartidos.
+* Alta movilidad.
+
+---
+
+# INFRAESTRUCTURA 3 — HOSPITAL
+
+---
+
+## Diseño
+
+```text
+              🌐
+
+               │
+
+          Firewall
+
+               │
+
+        Core Switch
+
+     ┌─────┼──────┐
+
+ EMR   Database   PACS
+
+  │        │        │
+
+IoT    Servers   Devices
+
+```
+
+---
+
+## Equipos
+
+* Monitores.
+* Equipos médicos.
+* Sistemas clínicos.
+
+---
+
+## Complejidad
+
+Alta.
+
+---
+
+## Riesgo
+
+Muy alto.
+
+---
+
+# INFRAESTRUCTURA 4 — ENTERPRISE
+
+---
+
+## Diseño
+
+```text
+              🌐
+
+               │
+
+          Firewall
+
+               │
+
+          Core Router
+
+      ┌────┬────┬────┐
+
+   HR   IT  Sales  ERP
+
+    │    │    │     │
+
+ PCs Servers DB Cloud
+```
+
+---
+
+## Características
+
+* Segmentación.
+* Departamentos.
+* Servidores.
+
+---
+
+## Nodos
+
+500–3000.
+
+---
+
+# INFRAESTRUCTURA 5 — DATA CENTER
+
+---
+
+## Diseño
+
+```text
+                 🌐
+
+                  │
+
+             Firewall
+
+                  │
+
+             Core Switch
+
+      ┌────────┼────────┐
+
+  Server A  Server B  Server C
+
+      │         │         │
+
+   Storage   Database   Backup
+
+      │         │         │
+
+      Cloud Services
+```
+
+---
+
+## Características
+
+* Gran cantidad de servidores.
+* Alta redundancia.
+* Servicios críticos.
+
+---
+
+## Complejidad
+
+Muy alta.
+
+---
+
+# INFRAESTRUCTURA 6 — SMART FACTORY
+
+---
+
+## Diseño
+
+```text
+               🌐
+
+                │
+
+            Firewall
+
+                │
+
+          Industrial LAN
+
+      ┌──────┼───────┐
+
+     PLC   Robot   SCADA
+
+      │      │        │
+
+     IoT   Sensors  Control
+```
+
+---
+
+## Equipos
+
+* PLC.
+* Robots.
+* Sensores.
+* SCADA.
+
+---
+
+## Riesgo
+
+Muy alto.
+
+---
+
+# INFRAESTRUCTURA 7 — CRITICAL INFRASTRUCTURE
+
+---
+
+## Diseño
+
+```text
+                    🌐
+
+                     │
+
+                Firewall
+
+                     │
+
+          ┌──────────┼──────────┐
+
+       Energy      Water      Telecom
+
+          │           │          │
+
+       Servers    PLCs      Databases
+
+          │           │          │
+
+       Sensors     IoT      Control
+```
+
+---
+
+## Características
+
+* Sistemas nacionales.
+* Alta criticidad.
+* Miles de nodos.
+
+---
+
+# VISUALIZACIÓN DE NODOS
+
+La infraestructura puede verse sencilla:
+
+```text
+🟦 ─ 🟦 ─ 🟥 ─ 🟦
+
+│     │     │
+
+🟦 ─ 🟩 ─ 🟦
+```
+
+---
+
+O más compleja:
+
+```text
+🟦 🟦 🟦 🟥 🟥
+
+🟦 🟩 🟦 🟦 🟥
+
+🟦 🟦 🟨 🟩 🟦
+```
+
+---
+
+# PROPAGACIÓN
+
+Cuando un nodo infectado tiene vecinos:
+
+```text
+🟥 → 🟦
+```
+
+---
+
+Resultado:
+
+```text
+🟥 → 🟥
+```
+
+---
+
+La propagación depende de:
+
+* β
+* γ
+* Malware
+* Infraestructura
+
+---
+
+# MODO SIMULACIÓN
+
+El sistema:
+
+* Propaga.
+* Mitiga.
+* Recupera.
+
+Todo automáticamente.
+
+---
+
+# MODO INTERACTIVO
+
+El usuario aplica:
+
+* Firewall.
+* Patch.
+* Isolation.
+* Backup.
+
+---
+
+Si el usuario actúa mal:
+
+```text
+β ↑
+```
+
+---
+
+Si actúa bien:
+
+```text
+γ ↑
+```
+
+---
+
+# VELOCIDAD
+
+```text
+1x
+
+2x
+
+5x
+```
+
+---
+
+# PAUSA
+
+```text
+⏸
+```
+
+Permite observar.
+
+---
+
+# INFORMACIÓN DE NODOS
+
+Al pasar el ratón:
+
+```text
+NODE 24
+
+State: Infected
+
+Time: 18 s
+
+Recovery: 60%
+
+Connections: 5
+```
+
+---
+
+# IMÁGENES NECESARIAS
+
+```text
+Firewall
+
+Router
+
+Switch
+
+Server
+
+Database
+
+Cloud
+
+IoT
+```
+
+---
+
+Estas imágenes se reutilizan en todas las infraestructuras.
+
+---
+
+# OBJETIVO ACADÉMICO
+
+El estudiante observa:
+
+```text
+Ecuaciones diferenciales
+            ↓
+Modelo SIR
+            ↓
+Método numérico
+            ↓
+Propagación
+            ↓
+Infraestructura
+```
+
+La matemática deja de ser solamente:
+
+```text
+dS/dt
+
+dI/dt
+
+dR/dt
+```
+
+y se convierte en una red viva que cambia en tiempo real.
+
+---
+
+# RESUMEN
+
+```text
+MÓDULO 6
+
+NETWORK SIMULATION
+
+Función:
+
+Visualizar la propagación del malware
+dentro de la infraestructura seleccionada.
+
+Contiene:
+
+• Nodos.
+• Conexiones.
+• Estados.
+• Propagación.
+• Recuperación.
+• Mitigaciones.
+• Modo automático.
+• Modo interactivo.
+
+Es el corazón visual de LAB-EDO.
+```
+
+Este probablemente sea el módulo más importante de todo el dashboard porque es el que conecta la ciberseguridad con las ecuaciones diferenciales.
+
+
+# MÓDULO 7 — MATHEMATICAL ANALYSIS
+
+---
+
+# Función General
+
+El Módulo 7 es el núcleo matemático de LAB-EDO.
+
+Mientras el Módulo 6 muestra **qué ocurre visualmente**, el Módulo 7 muestra **por qué ocurre matemáticamente**.
+
+Este módulo responde:
+
+```text
+¿Por qué se está propagando el malware?
+```
+
+Aquí se ejecutan:
+
+* Modelo SIR.
+* Método de Euler.
+* Método de Runge-Kutta de cuarto orden (RK4).
+
+Es probablemente el módulo más importante desde el punto de vista de **Ecuaciones Diferenciales**.
+
+---
+
+# Objetivos
+
+* Mostrar las ecuaciones.
+* Resolver numéricamente el sistema.
+* Comparar métodos.
+* Visualizar errores.
+* Relacionar matemática y ciberseguridad.
+
+---
+
+# Diseño General
+
+```text
+┌─────────────────────────────┐
+│ MATHEMATICAL ANALYSIS       │
+├─────────────────────────────┤
+
+Model:
+○ SIR
+
+Solver:
+● Euler
+○ RK4
+
+Time Step:
+Δt = 0.1
+
+R₀ = 2.6
+
+Status:
+Running
+
+──────────────────────
+
+dS/dt
+
+dI/dt
+
+dR/dt
+
+──────────────────────
+
+Current Values:
+
+S = 842
+I = 104
+R = 54
+
+└─────────────────────────────┘
+```
+
+---
+
+# 1. MODELO SIR
+
+El sistema está basado en:
+
+```text
+S → I → R
+```
+
+---
+
+## Susceptibles (S)
+
+Nodos sanos.
+
+Pueden infectarse.
+
+---
+
+## Infectados (I)
+
+Nodos comprometidos.
+
+Propagan el malware.
+
+---
+
+## Recuperados (R)
+
+Nodos protegidos.
+
+No vuelven a infectarse.
+
+---
+
+# Ecuaciones
+
+```text
+dS/dt = -βSI/N
+
+dI/dt = βSI/N - γI
+
+dR/dt = γI
+```
+
+---
+
+# Significado
+
+## dS/dt
+
+Cambio de los nodos sanos.
+
+---
+
+## dI/dt
+
+Cambio de los nodos infectados.
+
+---
+
+## dR/dt
+
+Cambio de los nodos recuperados.
+
+---
+
+# Número Reproductivo R₀
+
+También puede mostrarse.
+
+```text
+R₀ = β/γ
+```
+
+---
+
+## Interpretación
+
+Si:
+
+```text
+R₀ > 1
+```
+
+La infección crece.
+
+---
+
+Si:
+
+```text
+R₀ < 1
+```
+
+La infección desaparece.
+
+---
+
+# MÉTODO DE EULER
+
+---
+
+## Definición
+
+Método numérico de primer orden.
+
+---
+
+## Ecuación
+
+```text
+yₙ₊₁ = yₙ + h f(t,y)
+```
+
+---
+
+## Características
+
+* Rápido.
+* Simple.
+* Fácil de explicar.
+
+---
+
+## Ventajas
+
+* Bajo costo computacional.
+* Ideal para enseñanza.
+
+---
+
+## Desventajas
+
+* Menor precisión.
+
+---
+
+# MÉTODO RK4
+
+---
+
+## Definición
+
+Método de Runge-Kutta de cuarto orden.
+
+---
+
+## Fórmulas
+
+```text
+k1 = f(t,y)
+
+k2 = f(t+h/2)
+
+k3 = f(t+h/2)
+
+k4 = f(t+h)
+
+yₙ₊₁ = yₙ + (h/6)(k1+2k2+2k3+k4)
+```
+
+---
+
+## Ventajas
+
+* Muy preciso.
+* Alta estabilidad.
+
+---
+
+## Desventajas
+
+* Más cálculos.
+
+---
+
+# COMPARACIÓN DE MÉTODOS
+
+El usuario puede activar:
+
+```text
+☑ Compare Solvers
+```
+
+---
+
+Entonces:
+
+```text
+Euler:
+I = 82
+
+RK4:
+I = 79
+```
+
+---
+
+## Error
+
+```text
+Error = |Euler - RK4|
+```
+
+---
+
+Esto es extremadamente importante para la materia.
+
+---
+
+# PANEL DE VALORES
+
+Debe actualizarse dinámicamente.
+
+```text
+S = 712
+
+I = 182
+
+R = 106
+
+R₀ = 2.8
+
+β = 1.4
+
+γ = 0.5
+```
+
+Todo cambia en tiempo real.
+
+---
+
+# PASO TEMPORAL
+
+```text
+t = 0
+
+t = 1
+
+t = 2
+
+t = 3
+```
+
+---
+
+También:
+
+```text
+Δt = 0.1
+```
+
+---
+
+# CONVERGENCIA
+
+Puede mostrarse:
+
+```text
+Euler Error
+
+RK4 Error
+```
+
+---
+
+O:
+
+```text
+Precision:
+
+Euler 85%
+
+RK4 97%
+```
+
+---
+
+# INFORMACIÓN MATEMÁTICA
+
+Al pasar el ratón:
+
+```text
+β
+
+Probability of infection.
+```
+
+---
+
+```text
+γ
+
+Recovery rate.
+```
+
+---
+
+```text
+R₀
+
+Basic reproduction number.
+```
+
+---
+
+# IMÁGENES
+
+Este módulo prácticamente no necesita imágenes.
+
+Porque las propias ecuaciones son el contenido.
+
+---
+
+Sin embargo puede dejarse un espacio.
+
+```text
+┌───────────────────┐
+│ SIR Diagram       │
+└───────────────────┘
+```
+
+---
+
+```text
+S → I → R
+```
+
+---
+
+Y otro opcional.
+
+```text
+┌───────────────────┐
+│ Euler vs RK4      │
+└───────────────────┘
+```
+
+---
+
+Pero incluso la IA podría dibujarlos.
+
+---
+
+# Relación con otros módulos
+
+Recibe:
+
+* Malware.
+* Infraestructura.
+* β.
+* γ.
+* N.
+* I₀.
+* Δt.
+
+---
+
+Envía:
+
+* Valores al dashboard.
+* Datos a las gráficas.
+* Métricas.
+* Simulación visual.
+
+---
+
+# Ejemplo dinámico
+
+```text
+Tiempo: 0
+
+S = 995
+I = 5
+R = 0
+```
+
+↓
+
+```text
+Tiempo: 20
+
+S = 650
+I = 280
+R = 70
+```
+
+↓
+
+```text
+Tiempo: 40
+
+S = 220
+I = 90
+R = 690
+```
+
+---
+
+# Objetivo Académico
+
+Este módulo demuestra:
+
+* Sistemas de ecuaciones diferenciales.
+* Métodos numéricos.
+* Aproximaciones.
+* Error numérico.
+* Aplicación real de las EDO.
+
+Es el módulo que permite justificar todo el proyecto frente a la materia.
+
+---
+
+# Resumen
+
+```text
+MÓDULO 7
+
+MATHEMATICAL ANALYSIS
+
+Función:
+
+Resolver matemáticamente la
+propagación del malware mediante
+ecuaciones diferenciales.
+
+Contiene:
+
+• Modelo SIR.
+• Euler.
+• RK4.
+• R₀.
+• Parámetros.
+• Errores.
+• Convergencia.
+• Valores dinámicos.
+
+Es el corazón matemático de LAB-EDO.
+```
+
+De hecho, este es probablemente el módulo que más le va a gustar al profesor porque conecta directamente la teoría de Ecuaciones Diferenciales con una aplicación real de ciberseguridad.
+
+
+Perfecto. Estos dos módulos son los que terminan de convertir LAB-EDO en un verdadero laboratorio de EDO. De hecho, ambos tienen que estar completamente vivos durante la simulación.
+
+---
+
+# MÓDULO 8 — ANALYTICS & METRICS
+
+---
+
+# Función General
+
+El Módulo 8 muestra indicadores numéricos y estadísticas en tiempo real sobre el comportamiento del malware y la infraestructura.
+
+Mientras:
+
+* Módulo 6 → muestra la red.
+* Módulo 7 → muestra las ecuaciones.
+
+El Módulo 8 responde:
+
+```text
+¿Qué tan grave es la situación?
+```
+
+---
+
+# Diseño General
+
+```text
+┌────────────────────────┐
+│ ANALYTICS & METRICS    │
+├────────────────────────┤
+
+Nodes Infected
+124
+
+Recovery Rate
+63%
+
+Spread Speed
+2.3 nodes/s
+
+R₀
+2.7
+
+Mitigation Efficiency
+74%
+
+Elapsed Time
+38 s
+
+────────────────────
+
+Status:
+CRITICAL
+
+└────────────────────────┘
+```
+
+---
+
+# 1. Infection Percentage
+
+```text
+32%
+```
+
+Porcentaje de nodos infectados.
+
+---
+
+# Fórmula
+
+```text
+I/N × 100
+```
+
+---
+
+# 2. Recovery Percentage
+
+```text
+58%
+```
+
+Porcentaje recuperado.
+
+---
+
+# Fórmula
+
+```text
+R/N × 100
+```
+
+---
+
+# 3. Healthy Nodes
+
+```text
+68%
+```
+
+Nodos susceptibles.
+
+---
+
+# Fórmula
+
+```text
+S/N × 100
+```
+
+---
+
+# 4. Spread Speed
+
+```text
+2.4 nodes/s
+```
+
+---
+
+Representa:
+
+```text
+dI/dt
+```
+
+---
+
+# 5. Recovery Speed
+
+```text
+1.8 nodes/s
+```
+
+---
+
+Representa:
+
+```text
+dR/dt
+```
+
+---
+
+# 6. Basic Reproduction Number
+
+```text
+R₀ = β/γ
+```
+
+---
+
+Interpretación:
+
+```text
+R₀ > 1
+```
+
+Crece.
+
+```text
+R₀ < 1
+```
+
+Desaparece.
+
+---
+
+# 7. Mitigation Efficiency
+
+```text
+72%
+```
+
+---
+
+Calcula:
+
+* Firewall.
+* Patch.
+* Isolation.
+* Backup.
+
+---
+
+# 8. Elapsed Time
+
+```text
+45 s
+```
+
+---
+
+Tiempo de simulación.
+
+---
+
+# 9. Status
+
+Puede mostrar:
+
+```text
+HEALTHY
+WARNING
+CRITICAL
+CONTAINED
+```
+
+---
+
+# Colores
+
+```text
+Verde
+
+Amarillo
+
+Naranja
+
+Rojo
+```
+
+---
+
+# Tarjetas
+
+Visualmente:
+
+```text
+┌────────────┐
+│ Infected   │
+│    124     │
+└────────────┘
+
+┌────────────┐
+│ Recovery   │
+│    63%     │
+└────────────┘
+```
+
+---
+
+# Dinamismo
+
+Todo debe actualizarse cada frame.
+
+El usuario debe ver:
+
+```text
+124
+
+126
+
+130
+
+137
+
+145
+```
+
+Moviéndose.
+
+---
+
+# Imágenes
+
+No necesita.
+
+Los números son el contenido.
+
+---
+
+# Objetivo Académico
+
+Permite analizar cuantitativamente:
+
+* propagación,
+* recuperación,
+* eficacia.
+
+---
+
+---
+
+# MÓDULO 9 — SIR CURVES
+
+---
+
+# Función General
+
+Mostrar la evolución temporal del sistema SIR.
+
+Este módulo responde:
+
+```text
+¿Cómo evoluciona matemáticamente la infección?
+```
+
+---
+
+# Este módulo ES obligatorio.
+
+Porque es donde el profesor verá:
+
+* Ecuaciones diferenciales.
+* Soluciones.
+* Euler.
+* RK4.
+
+---
+
+# Diseño
+
+```text
+SIR CURVES
+
+|
+|\
+| \
+|  \      S
+|   \
+|
+|      /\     I
+|     /  \
+|
+|          \____ R
+|
++----------------------→ t
+```
+
+---
+
+# Curva S (Susceptible)
+
+Color:
+
+```text
+Azul
+```
+
+---
+
+Representa:
+
+```text
+S(t)
+```
+
+---
+
+Comportamiento:
+
+```text
+1000
+
+900
+
+700
+
+400
+
+150
+```
+
+---
+
+Disminuye.
+
+---
+
+# Curva I (Infectados)
+
+Color:
+
+```text
+Rojo
+```
+
+---
+
+Representa:
+
+```text
+I(t)
+```
+
+---
+
+Comportamiento:
+
+```text
+0
+
+40
+
+180
+
+320
+
+150
+
+20
+```
+
+---
+
+Sube y luego baja.
+
+---
+
+# Curva R (Recuperados)
+
+Color:
+
+```text
+Verde
+```
+
+---
+
+Representa:
+
+```text
+R(t)
+```
+
+---
+
+Comportamiento:
+
+```text
+0
+
+20
+
+80
+
+250
+
+500
+
+830
+```
+
+---
+
+Siempre aumenta.
+
+---
+
+# IMPORTANTÍSIMO
+
+Las curvas deben moverse.
+
+No deben aparecer completas.
+
+---
+
+Debe verse:
+
+```text
+t=0
+
+|
+|
+|
++---
+```
+
+---
+
+Luego:
+
+```text
+t=5
+
+|\
+|
+|
++------
+```
+
+---
+
+Luego:
+
+```text
+t=20
+
+|\
+
+| \
+
+|  /\
+
++---------
+```
+
+---
+
+Las curvas deben dibujarse punto a punto.
+
+---
+
+# Animación
+
+Cada paso temporal:
+
+```text
+Δt
+```
+
+agrega un nuevo punto.
+
+---
+
+Ejemplo:
+
+```text
+S.push()
+
+I.push()
+
+R.push()
+```
+
+---
+
+Visualmente:
+
+```text
+La línea se extiende.
+```
+
+---
+
+No aparece instantáneamente.
+
+---
+
+# Comparación Euler vs RK4
+
+Opcional.
+
+---
+
+Podría verse:
+
+```text
+S Euler
+
+S RK4
+
+I Euler
+
+I RK4
+
+R Euler
+
+R RK4
+```
+
+---
+
+Con líneas punteadas.
+
+---
+
+# Leyenda
+
+```text
+🔵 S(t)
+
+🔴 I(t)
+
+🟢 R(t)
+```
+
+---
+
+# Ejes
+
+```text
+Y = Número de nodos
+
+X = Tiempo
+```
+
+---
+
+# Zoom
+
+Opcional:
+
+* 1 minuto.
+* 5 minutos.
+* Completa.
+
+---
+
+# Datos en el mouse
+
+```text
+t = 22
+
+S = 420
+
+I = 310
+
+R = 270
+```
+
+---
+
+# Si el usuario cambia β
+
+La curva cambia inmediatamente.
+
+---
+
+# Si aplica mitigaciones
+
+La curva roja baja.
+
+---
+
+# Si aumenta γ
+
+La verde sube más rápido.
+
+---
+
+# Si cambia I₀
+
+La roja comienza más arriba.
+
+---
+
+# Imágenes
+
+No necesita ninguna.
+
+La gráfica es el contenido.
+
+---
+
+# Objetivo Académico
+
+Este módulo permite observar:
+
+```text
+S(t)
+
+I(t)
+
+R(t)
+```
+
+en tiempo real.
+
+---
+
+El estudiante puede ver:
+
+* máximo de infección,
+* tiempo del pico,
+* recuperación,
+* estabilidad.
+
+---
+
+# Resumen
+
+```text
+MÓDULO 8
+
+ANALYTICS & METRICS
+
+• Porcentajes.
+• Velocidades.
+• R₀.
+• Tiempo.
+• Eficacia.
+• Estado.
+
+--------------------------------
+
+MÓDULO 9
+
+SIR CURVES
+
+• S(t)
+• I(t)
+• R(t)
+
+Curvas dinámicas.
+
+Colores:
+
+🔵 azul S
+🔴 rojo I
+🟢 verde R
+
+Las líneas se dibujan en tiempo real.
+
+
+
+Es la representación gráfica de las
+ecuaciones diferenciales.
+```
+
+Y honestamente, si hay dos módulos que harán que el profesor diga "esto sí es Ecuaciones Diferenciales", son exactamente el Módulo 7 y el Módulo 9.
+
+
+
+# MÓDULO 10 — INFRASTRUCTURE STATUS & LOGS
+
+---
+
+# Función General
+
+El Módulo 10 representa el centro de monitoreo de la infraestructura.
+
+Mientras:
+
+* Módulo 6 muestra la red.
+* Módulo 7 muestra las ecuaciones.
+* Módulo 8 muestra las métricas.
+* Módulo 9 muestra las curvas.
+
+El Módulo 10 responde:
+
+```text
+¿Qué está ocurriendo exactamente dentro del sistema?
+```
+
+Es el equivalente a un:
+
+* SIEM.
+* Centro de monitoreo.
+* Consola SOC.
+* Registro de eventos.
+
+---
+
+# Objetivos
+
+* Mostrar eventos.
+* Registrar infecciones.
+* Mostrar mitigaciones.
+* Detectar cambios.
+* Explicar el comportamiento de la simulación.
+
+---
+
+# Diseño General
+
+```text
+┌────────────────────────────┐
+│ INFRASTRUCTURE STATUS      │
+├────────────────────────────┤
+
+Status:
+● CRITICAL
+
+Nodes:
+Healthy: 48
+Infected: 22
+Recovered: 15
+
+Firewall:
+Active
+
+Isolation:
+Enabled
+
+Risk:
+HIGH
+
+────────────────────
+
+System Logs
+
+[12:01] Node-14 infected
+[12:04] Firewall activated
+[12:07] Node-21 isolated
+[12:10] Recovery initiated
+
+└────────────────────────────┘
+```
+
+---
+
+# PARTE 1 — ESTADO GENERAL
+
+---
+
+## HEALTHY
+
+```text
+🟢 HEALTHY
+```
+
+* Pocos infectados.
+* Riesgo bajo.
+
+---
+
+## WARNING
+
+```text
+🟡 WARNING
+```
+
+* Propagación moderada.
+
+---
+
+## CRITICAL
+
+```text
+🔴 CRITICAL
+```
+
+* Brote importante.
+
+---
+
+## CONTAINED
+
+```text
+🔵 CONTAINED
+```
+
+* El malware ha sido controlado.
+
+---
+
+# Indicador visual
+
+```text
+🟢
+
+🟡
+
+🟠
+
+🔴
+```
+
+Puede ser un círculo brillante.
+
+---
+
+# PARTE 2 — CONTADORES
+
+---
+
+```text
+Healthy Nodes: 72
+
+Infected Nodes: 18
+
+Recovered Nodes: 10
+
+Isolated Nodes: 4
+```
+
+---
+
+Estos valores cambian constantemente.
+
+---
+
+# PARTE 3 — RIESGO
+
+Puede calcularse automáticamente.
+
+---
+
+## LOW
+
+```text
+0-20%
+```
+
+---
+
+## MEDIUM
+
+```text
+20-50%
+```
+
+---
+
+## HIGH
+
+```text
+50-80%
+```
+
+---
+
+## CRITICAL
+
+```text
+80-100%
+```
+
+---
+
+Ejemplo:
+
+```text
+Risk Level:
+
+HIGH
+```
+
+---
+
+# PARTE 4 — CONTROLES ACTIVOS
+
+```text
+✓ Firewall
+
+✓ Isolation
+
+✓ Patch
+
+✗ Backup
+```
+
+---
+
+Permite saber qué mitigaciones están funcionando.
+
+---
+
+# PARTE 5 — LOGS
+
+Probablemente la parte más importante.
+
+---
+
+# Función
+
+Registrar todo lo que sucede.
+
+---
+
+# Diseño
+
+```text
+┌────────────────────┐
+│ SYSTEM LOGS        │
+├────────────────────┤
+
+12:01 Node-12 infected
+
+12:03 Worm spread
+
+12:04 Firewall enabled
+
+12:07 Node-18 isolated
+
+12:10 Recovery started
+
+└────────────────────┘
+```
+
+---
+
+# Tipos de logs
+
+---
+
+## Infección
+
+```text
+[12:01]
+
+Node-15 infected.
+```
+
+---
+
+## Propagación
+
+```text
+[12:02]
+
+Worm propagated to Node-18.
+```
+
+---
+
+## Recuperación
+
+```text
+[12:06]
+
+Node-15 recovered.
+```
+
+---
+
+## Mitigación
+
+```text
+[12:08]
+
+Firewall activated.
+```
+
+---
+
+## Aislamiento
+
+```text
+[12:10]
+
+Node-21 isolated.
+```
+
+---
+
+## Error
+
+```text
+[12:12]
+
+Patch failed.
+```
+
+---
+
+# Colores
+
+```text
+🔴 Infection
+
+🟡 Warning
+
+🟢 Recovery
+
+🔵 Mitigation
+
+⚪ Information
+```
+
+---
+
+# Scroll
+
+Los logs deben tener scroll.
+
+Porque podrían generarse cientos.
+
+---
+
+```text
+[12:01]
+
+[12:02]
+
+[12:03]
+
+[12:04]
+
+...
+```
+
+---
+
+# Velocidad
+
+Si la simulación está en:
+
+```text
+5x
+```
+
+Los logs aparecen más rápido.
+
+---
+
+# Filtros
+
+Opcional.
+
+```text
+☑ Infections
+
+☑ Recovery
+
+☑ Mitigation
+
+☑ Warnings
+```
+
+---
+
+# Ejemplo real
+
+```text
+12:01 Worm executed.
+
+12:02 Node-4 infected.
+
+12:04 Node-7 infected.
+
+12:05 Firewall activated.
+
+12:07 Node-7 isolated.
+
+12:10 Recovery started.
+
+12:14 Infection rate decreased.
+
+12:20 Outbreak contained.
+```
+
+---
+
+# Relación con el Modelo SIR
+
+Cuando:
+
+```text
+I(t)
+```
+
+sube.
+
+Aparecen más logs de infección.
+
+---
+
+Cuando:
+
+```text
+R(t)
+```
+
+sube.
+
+Aparecen más logs de recuperación.
+
+---
+
+Cuando:
+
+```text
+β
+```
+
+es alto.
+
+Los eventos aparecen más rápido.
+
+---
+
+Cuando:
+
+```text
+γ
+```
+
+es alto.
+
+Aparecen más recuperaciones.
+
+---
+
+# Información de infraestructura
+
+También puede mostrar:
+
+```text
+Infrastructure:
+
+Hospital
+
+Complexity:
+
+High
+
+Security:
+
+Medium
+```
+
+---
+
+# Imágenes
+
+No necesita imágenes.
+
+Todo es:
+
+* texto,
+* estados,
+* indicadores.
+
+---
+
+# Animaciones
+
+Puede haber:
+
+```text
+● blinking red
+```
+
+para CRITICAL.
+
+---
+
+```text
+● green pulse
+```
+
+para HEALTHY.
+
+---
+
+# Objetivo Académico
+
+Este módulo permite que el estudiante entienda:
+
+```text
+Ecuaciones
+      ↓
+Propagación
+      ↓
+Eventos
+      ↓
+Consecuencias
+```
+
+Es decir, el sistema deja de ser solamente números y se convierte en un entorno monitoreado.
+
+---
+
+# Resumen
+
+```text
+MÓDULO 10
+
+INFRASTRUCTURE STATUS & LOGS
+
+Función:
+
+Monitorear el estado actual de la
+infraestructura y registrar todos
+los eventos de la simulación.
+
+Contiene:
+
+• Estado general.
+• Riesgo.
+• Contadores.
+• Mitigaciones.
+• Logs.
+• Eventos.
+• Alertas.
+• Recuperaciones.
+
+Es la consola de monitoreo de LAB-EDO.
+```
+
+Este módulo hace que el proyecto se sienta como un verdadero centro de operaciones de ciberseguridad, mientras sigue conectado al modelo matemático del sistema.
+
+
+# MÓDULO 11 — MITIGATION CONTROLS
+
+---
+
+# Función General
+
+El Módulo 11 representa los controles de ciberseguridad disponibles para contener, reducir o eliminar la propagación del malware dentro de la infraestructura.
+
+Mientras:
+
+* Módulo 6 muestra la infección.
+* Módulo 7 calcula las ecuaciones.
+* Módulo 8 mide el comportamiento.
+* Módulo 9 muestra las curvas.
+* Módulo 10 registra los eventos.
+
+El Módulo 11 responde:
+
+```text id="uk4k9r"
+¿Cómo podemos detener la infección?
+```
+
+---
+
+# Objetivos
+
+* Reducir β.
+* Aumentar γ.
+* Contener brotes.
+* Enseñar controles reales.
+* Relacionar ciberseguridad y matemáticas.
+
+---
+
+# Diseño General
+
+```text id="3ggqfy"
+┌──────────────────────────┐
+│ MITIGATION CONTROLS      │
+├──────────────────────────┤
+
+🛡 Firewall
+Status: Active
+
+🩹 Patch Management
+Status: Waiting
+
+🔒 Isolation
+Status: Active
+
+🧠 IDS/IPS
+Status: Monitoring
+
+💾 Backup Recovery
+Status: Standby
+
+└──────────────────────────┘
+```
+
+---
+
+# Funcionamiento
+
+## Modo Simulación
+
+Los controles actúan automáticamente.
+
+---
+
+## Modo Interactivo
+
+El usuario decide:
+
+* Cuándo activar.
+* Qué aplicar.
+* Qué priorizar.
+
+---
+
+Si la decisión es incorrecta:
+
+```text id="5vlfb6"
+β aumenta.
+```
+
+---
+
+Si la decisión es correcta:
+
+```text id="duklvw"
+γ aumenta.
+```
+
+---
+
+# CONTROL 1 — FIREWALL
+
+---
+
+## Función
+
+Filtrar conexiones.
+
+Bloquear tráfico malicioso.
+
+---
+
+## Efecto Matemático
+
+```text id="jjlwmv"
+β ↓
+```
+
+---
+
+## Consecuencia
+
+La infección se propaga más lentamente.
+
+---
+
+## Ejemplo
+
+```text id="jwncdi"
+Worm
+
+β = 1.8
+
+Firewall:
+
+β = 1.1
+```
+
+---
+
+## Imagen
+
+```text id="p72qe5"
+[ Firewall Image ]
+```
+
+---
+
+# CONTROL 2 — PATCH MANAGEMENT
+
+---
+
+## Función
+
+Corregir vulnerabilidades.
+
+Actualizar sistemas.
+
+---
+
+## Efecto
+
+```text id="syqcc8"
+γ ↑
+```
+
+---
+
+## Consecuencia
+
+Los nodos se recuperan más rápido.
+
+---
+
+## Ejemplo
+
+```text id="jlwm7w"
+γ = 0.3
+
+Patch:
+
+γ = 0.6
+```
+
+---
+
+## Imagen
+
+```text id="fxy8la"
+[ Patch Image ]
+```
+
+---
+
+# CONTROL 3 — ISOLATION
+
+---
+
+## Función
+
+Separar nodos infectados.
+
+---
+
+## Efecto
+
+Disminuir conexiones.
+
+---
+
+## Resultado
+
+```text id="dbk5sl"
+Node-24
+
+Disconnected.
+```
+
+---
+
+## Consecuencia
+
+La propagación se detiene localmente.
+
+---
+
+## Imagen
+
+```text id="v31v4k"
+[ Isolation Image ]
+```
+
+---
+
+# CONTROL 4 — IDS / IPS
+
+---
+
+## Función
+
+Detectar comportamiento anómalo.
+
+---
+
+## Efecto
+
+Reducir:
+
+```text id="tlgh7u"
+Tiempo de detección.
+```
+
+---
+
+## Resultado
+
+Los nodos se aíslan antes.
+
+---
+
+## Imagen
+
+```text id="hwl38t"
+[ IDS Image ]
+```
+
+---
+
+# CONTROL 5 — BACKUP RECOVERY
+
+---
+
+## Función
+
+Restaurar sistemas comprometidos.
+
+---
+
+## Importancia
+
+Especialmente contra:
+
+* Ransomware.
+* Destrucción de datos.
+
+---
+
+## Efecto
+
+Aumenta:
+
+```text id="hlj5dz"
+γ
+```
+
+---
+
+Y disminuye:
+
+```text id="ql3vq7"
+Tiempo de recuperación.
+```
+
+---
+
+## Imagen
+
+```text id="nt5hng"
+[ Backup Image ]
+```
+
+---
+
+# Diseño de los controles
+
+Cada uno puede verse así:
+
+```text id="6b1vhj"
+┌──────────────┐
+
+   🛡
+
+Firewall
+
+ACTIVE
+
+└──────────────┘
+```
+
+---
+
+# Estados
+
+---
+
+## Activo
+
+```text id="pksccl"
+🟢 ACTIVE
+```
+
+---
+
+## Inactivo
+
+```text id="lt1k6u"
+⚪ OFFLINE
+```
+
+---
+
+## Aplicando
+
+```text id="05qzkp"
+🟡 APPLYING
+```
+
+---
+
+## Error
+
+```text id="rq3wso"
+🔴 FAILED
+```
+
+---
+
+# Relación con las ecuaciones
+
+---
+
+## Firewall
+
+```text id="g2e4c2"
+β ↓
+```
+
+---
+
+## Isolation
+
+```text id="b5p4g4"
+β ↓
+```
+
+---
+
+## Patch
+
+```text id="c6f28m"
+γ ↑
+```
+
+---
+
+## Backup
+
+```text id="6ow5ao"
+γ ↑
+```
+
+---
+
+## IDS
+
+```text id="y9v6k0"
+Detección más rápida.
+```
+
+---
+
+# Ejemplo práctico
+
+Sin controles:
+
+```text id="bnnxxf"
+β = 2.0
+
+γ = 0.2
+```
+
+---
+
+Con controles:
+
+```text id="gk1x9e"
+β = 0.8
+
+γ = 0.7
+```
+
+---
+
+La curva roja disminuye.
+
+La curva verde aumenta.
+
+---
+
+# Interacción con el Módulo 9
+
+Si activamos:
+
+```text id="fd2m3i"
+Firewall
+```
+
+La curva:
+
+```text id="ljgnf8"
+I(t)
+```
+
+crece más lentamente.
+
+---
+
+Si activamos:
+
+```text id="udynkz"
+Patch
+```
+
+La curva:
+
+```text id="nmjtwq"
+R(t)
+```
+
+crece más rápido.
+
+---
+
+# Logs generados
+
+```text id="dt8jlwm"
+12:05 Firewall activated.
+
+12:08 Isolation enabled.
+
+12:11 Patch deployed.
+
+12:15 Recovery initiated.
+```
+
+---
+
+# Información al pasar el mouse
+
+```text id="ic5hlf"
+Firewall
+
+Reduces infection probability.
+
+Effect:
+
+β -40%
+```
+
+---
+
+```text id="e4z8w8"
+Patch
+
+Increases recovery.
+
+Effect:
+
+γ +35%
+```
+
+---
+
+# Imágenes necesarias
+
+```text id="q0pr2s"
+Firewall
+
+Patch
+
+Isolation
+
+IDS
+
+Backup
+```
+
+Total:
+
+```text id="c9v1pj"
+5 imágenes.
+```
+
+---
+
+# Objetivo Académico
+
+Permite demostrar que:
+
+```text id="e0tqwd"
+Controles de seguridad
+          ↓
+Cambian β y γ
+          ↓
+Cambian las ecuaciones
+          ↓
+Cambian las curvas
+          ↓
+Cambia la simulación
+```
+
+Este módulo conecta directamente la ciberseguridad con las ecuaciones diferenciales.
+
+---
+
+# Resumen
+
+```text id="1b5w9g"
+MÓDULO 11
+
+MITIGATION CONTROLS
+
+Función:
+
+Aplicar controles de seguridad para
+modificar el comportamiento del
+modelo matemático.
+
+Controles:
+
+• Firewall.
+• Patch Management.
+• Isolation.
+• IDS/IPS.
+• Backup Recovery.
+
+Efectos:
+
+β ↓
+
+γ ↑
+
+Es el módulo que permite al usuario
+intervenir sobre la simulación.
+```
+
+Con este módulo realmente cierras el ciclo completo:
+
+```text
+Malware
+      ↓
+Infraestructura
+      ↓
+Parámetros
+      ↓
+Ecuaciones
+      ↓
+Simulación
+      ↓
+Gráficas
+      ↓
+Métricas
+      ↓
+Logs
+      ↓
+Mitigación
+```
+
+Y eso convierte a LAB-EDO en un verdadero laboratorio interactivo de ecuaciones diferenciales aplicadas a la ciberseguridad.
+
+
+# MÓDULO 12 — FOOTER & SESSION INFORMATION
+
+---
+
+# Función General
+
+El Módulo 12 representa el pie del dashboard y funciona como la barra de estado general de LAB-EDO.
+
+Mientras:
+
+* El Módulo 6 muestra la red.
+* El Módulo 8 muestra métricas.
+* El Módulo 9 muestra curvas.
+* El Módulo 10 muestra logs.
+
+El Footer responde:
+
+```text
+¿Cuál es el estado general de la simulación?
+```
+
+Es el equivalente a la barra de estado de un software profesional o de un centro de operaciones.
+
+---
+
+# Ubicación
+
+Se encuentra en la parte inferior de toda la aplicación.
+
+```text
+┌───────────────────────────────────────────┐
+│ HEADER                                    │
+├───────────────────────────────────────────┤
+│                                           │
+│                                           │
+│              DASHBOARD                    │
+│                                           │
+│                                           │
+├───────────────────────────────────────────┤
+│ FOOTER                                    │
+└───────────────────────────────────────────┘
+```
+
+---
+
+# Diseño General
+
+```text
+┌───────────────────────────────────────────────────────────┐
+│ LAB-EDO │ Simulation: Running │ Time: 42 s │ FPS: 60    │
+│ Euler │ β=1.4 │ γ=0.5 │ Hospital │ Worm │ Print Report │
+└───────────────────────────────────────────────────────────┘
+```
+
+---
+
+# Funciones del Footer
+
+---
+
+# 1. Estado de la Simulación
+
+Puede mostrar:
+
+```text
+● READY
+
+● RUNNING
+
+● PAUSED
+
+● COMPLETED
+
+● STOPPED
+```
+
+---
+
+## READY
+
+Esperando inicio.
+
+---
+
+## RUNNING
+
+La simulación está ejecutándose.
+
+---
+
+## PAUSED
+
+Simulación detenida.
+
+---
+
+## COMPLETED
+
+Todos los nodos recuperados.
+
+---
+
+# Colores
+
+```text
+READY      ⚪
+
+RUNNING    🟢
+
+PAUSED     🟡
+
+COMPLETED  🔵
+
+ERROR      🔴
+```
+
+---
+
+# 2. Tiempo de Simulación
+
+```text
+Simulation Time
+
+42 s
+```
+
+---
+
+Se actualiza continuamente.
+
+```text
+42
+
+43
+
+44
+
+45
+```
+
+---
+
+# 3. Método Numérico
+
+Permite saber qué solver está activo.
+
+```text
+Euler
+```
+
+o
+
+```text
+RK4
+```
+
+---
+
+Incluso:
+
+```text
+Euler | RK4
+```
+
+si se comparan ambos.
+
+---
+
+# 4. Parámetros Activos
+
+Puede mostrar:
+
+```text
+β = 1.4
+
+γ = 0.5
+
+Δt = 0.1
+```
+
+---
+
+Esto ayuda al profesor a saber:
+
+* qué valores se usaron,
+* qué configuración tiene la simulación.
+
+---
+
+# 5. Malware Seleccionado
+
+```text
+Malware:
+
+Worm
+```
+
+---
+
+O:
+
+```text
+Ransomware
+```
+
+---
+
+# 6. Infraestructura
+
+```text
+Infrastructure:
+
+Hospital
+```
+
+---
+
+O:
+
+```text
+Datacenter
+```
+
+---
+
+# 7. Velocidad
+
+```text
+1x
+
+2x
+
+5x
+```
+
+---
+
+Permite saber a qué velocidad se ejecuta la simulación.
+
+---
+
+# 8. Controles Activos
+
+Ejemplo:
+
+```text
+Firewall ✓
+
+Patch ✓
+
+Isolation ✗
+```
+
+---
+
+Resumen rápido.
+
+---
+
+# 9. FPS (Opcional)
+
+Si la IA puede hacerlo:
+
+```text
+FPS: 60
+```
+
+---
+
+Sirve para mostrar:
+
+* rendimiento,
+* fluidez.
+
+---
+
+No es obligatorio.
+
+---
+
+# 10. Botón de Reporte
+
+Muy importante.
+
+```text
+[ Print Results ]
+```
+
+---
+
+Al finalizar la simulación:
+
+```text
+Generate Session Report
+```
+
+---
+
+El reporte puede contener:
+
+* malware usado,
+* infraestructura,
+* parámetros,
+* método numérico,
+* tiempo,
+* porcentaje infectado,
+* porcentaje recuperado,
+* R₀,
+* resultado.
+
+---
+
+# Ejemplo
+
+```text
+LAB-EDO SESSION REPORT
+
+Malware:
+Worm
+
+Infrastructure:
+Hospital
+
+Method:
+RK4
+
+β:
+1.4
+
+γ:
+0.6
+
+Peak Infection:
+342 nodes
+
+Recovered:
+94%
+
+Status:
+Contained
+```
+
+---
+
+# 11. Autoría
+
+En una esquina pequeña:
+
+```text
+LAB-EDO v1.0
+
+Universidad Dr. Jose Gregorio Hernandez
+
+Catedra: Ecuaciones Diferenciales
+Prof: Manuel Fereira
+```
+
+---
+
+O:
+
+```text
+Developed for Differential Equations
+```
+
+---
+
+# Diseño Visual
+
+Debe ser:
+
+* Glassmorphism.
+* Transparencia.
+* Fondo oscuro.
+* Pequeño brillo.
+
+---
+
+Ejemplo:
+
+```text
+██████████████████████████
+
+LAB-EDO | RUNNING | RK4
+
+██████████████████████████
+```
+
+---
+
+# Animaciones
+
+El footer también debe sentirse vivo.
+
+---
+
+RUNNING:
+
+```text
+🟢 pulso verde.
+```
+
+---
+
+PAUSED:
+
+```text
+🟡 fijo.
+```
+
+---
+
+CRITICAL:
+
+```text
+🔴 parpadeo suave.
+```
+
+---
+
+# Relación con otros módulos
+
+Recibe información de:
+
+* Módulo 2.
+* Módulo 3.
+* Módulo 5.
+* Módulo 6.
+* Módulo 8.
+* Módulo 10.
+* Módulo 11.
+
+---
+
+Es un resumen de toda la simulación.
+
+---
+
+# Diseño con palitos
+
+```text
+┌──────────────────────────────────────────────┐
+│ LAB-EDO v1.0                                │
+│                                              │
+│ Status: RUNNING                             │
+│ Time: 42 s                                  │
+│ Method: RK4                                 │
+│ β: 1.4    γ: 0.5    Δt: 0.1                 │
+│ Malware: Worm                               │
+│ Infrastructure: Hospital                     │
+│ Controls: Firewall ✓ Patch ✓ Isolation ✗    │
+│                                              │
+│ [ Print Results ]                           │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+# Objetivo Académico
+
+El Footer permite que el usuario pueda identificar rápidamente:
+
+```text
+Qué simulación ejecutó.
+
+Qué parámetros utilizó.
+
+Qué método empleó.
+
+Qué resultado obtuvo.
+```
+
+---
+
+# Resumen
+
+```text
+MÓDULO 12
+
+FOOTER & SESSION INFORMATION
+
+Función:
+
+Mostrar el estado general de la
+simulación y resumir toda la sesión.
+
+Contiene:
+
+• Estado.
+• Tiempo.
+• Solver.
+• Parámetros.
+• Malware.
+• Infraestructura.
+• Controles.
+• Reporte.
+• Autoría.
+
+Es la barra de estado de LAB-EDO.
+```
+
+Con este módulo prácticamente completas toda la arquitectura del dashboard:
+
+```text
+1. Header
+2. Malware
+3. Infraestructuras
+4. Resumen
+5. Parámetros
+6. Network Simulation
+7. Mathematical Analysis
+8. Analytics & Metrics
+9. SIR Curves
+10. Infrastructure Status & Logs
+11. Mitigation Controls
+12. Footer
+```
+
+Y ya tienes definido el dashboard completo de LAB-EDO de arriba hacia abajo.
+
+
+Perfecto. De hecho, ese panel de las **tres rayitas (☰)** termina siendo prácticamente el **Manual Oficial de LAB-EDO**. Y sí, estoy de acuerdo contigo: lo mejor es que se abra desde la derecha ocupando aproximadamente la mitad de la pantalla para que se pueda leer cómodamente.
+
+---
+
+# MÓDULO EXTRA — DOCUMENTATION PANEL
+
+```text
+                    ┌─────────────────────────┐
+Dashboard           │                         │
+                    │     DOCUMENTATION       │
+                    │                         │
+                    │                         │
+                    │                         │
+                    │                         │
+                    │                         │
+                    │                         │
+                    │                         │
+                    └─────────────────────────┘
+```
+
+Ancho:
+
+```text
+40% a 50% de la pantalla.
+```
+
+Con:
+
+* Scroll vertical.
+* Glassmorphism.
+* Fondo oscuro.
+* Texto blanco.
+* Títulos azules.
+* Subtítulos grises.
+
+---
+
+# ÍNDICE
+
+```text
+☰ DOCUMENTATION
+
+1. About LAB-EDO
+2. Malware Encyclopedia
+3. Infrastructure Encyclopedia
+4. Mitigation Controls
+5. Mathematical Model
+6. Numerical Methods
+7. Dashboard Guide
+8. Equations and Parameters
+9. References
+10. Project Information
+```
+
+---
+
+# 1. ABOUT LAB-EDO
+
+---
+
+## ¿Qué es LAB-EDO?
+
+LAB-EDO es un laboratorio interactivo que utiliza ecuaciones diferenciales para modelar la propagación de malware dentro de infraestructuras informáticas.
+
+Integra:
+
+* Ciberseguridad.
+* Matemáticas.
+* Simulación.
+* Visualización.
+
+---
+
+## Objetivos
+
+* Enseñar EDO.
+* Aplicar el modelo SIR.
+* Resolver ecuaciones.
+* Simular malware.
+* Analizar mitigaciones.
+
+---
+
+# 2. MALWARE ENCYCLOPEDIA
+
+---
+
+# WORM
+
+---
+
+## Definición
+
+Malware autorreplicable.
+
+No necesita intervención del usuario.
+
+---
+
+## Infecciosidad
+
+```text
+★★★★★
+```
+
+---
+
+## β
+
+Alto.
+
+---
+
+## Infraestructuras vulnerables
+
+* School Network.
+* Office.
+* Enterprise.
+
+---
+
+## Mejores mitigaciones
+
+* Firewall.
+* Isolation.
+
+---
+
+## Peores mitigaciones
+
+* Backup únicamente.
+
+---
+
+## Propagación
+
+Muy rápida.
+
+---
+
+# TROJAN
+
+---
+
+## Definición
+
+Se oculta dentro de software legítimo.
+
+---
+
+## Infecciosidad
+
+```text
+★★★☆☆
+```
+
+---
+
+## Vulnerables
+
+* Oficinas.
+* Usuarios finales.
+
+---
+
+## Mejor control
+
+* Patch.
+* IDS.
+
+---
+
+# RANSOMWARE
+
+---
+
+## Definición
+
+Secuestra información.
+
+---
+
+## Infecciosidad
+
+```text
+★★★★☆
+```
+
+---
+
+## Objetivos
+
+* Hospitales.
+* Empresas.
+* Datacenters.
+
+---
+
+## Mejor mitigación
+
+* Backup.
+* Isolation.
+
+---
+
+## Peor control
+
+Firewall solamente.
+
+---
+
+# BOTNET
+
+---
+
+## Definición
+
+Convierte dispositivos en una red controlada.
+
+---
+
+## Vulnerables
+
+* IoT.
+* Smart Factory.
+
+---
+
+## Mejor control
+
+* IDS.
+* Isolation.
+
+---
+
+# SPYWARE
+
+---
+
+## Definición
+
+Roba información.
+
+---
+
+## Infecciosidad
+
+Baja.
+
+---
+
+## Daño
+
+Alto.
+
+---
+
+## Mejor mitigación
+
+Patch.
+
+---
+
+# ADWARE
+
+---
+
+## Definición
+
+Publicidad maliciosa.
+
+---
+
+## Infección
+
+Baja.
+
+---
+
+## Uso académico
+
+Ideal para simulaciones simples.
+
+---
+
+# Tabla general
+
+| Malware    | β     | Riesgo  | Mejor Control |
+| ---------- | ----- | ------- | ------------- |
+| Worm       | Alto  | Alto    | Firewall      |
+| Trojan     | Medio | Medio   | Patch         |
+| Ransomware | Alto  | Crítico | Backup        |
+| Botnet     | Alto  | Alto    | IDS           |
+| Spyware    | Bajo  | Medio   | Patch         |
+| Adware     | Bajo  | Bajo    | Firewall      |
+
+---
+
+# 3. INFRASTRUCTURE ENCYCLOPEDIA
+
+---
+
+# SMALL OFFICE
+
+---
+
+### Complejidad
+
+Baja.
+
+---
+
+### Vulnerabilidades
+
+* Contraseñas débiles.
+* Sin segmentación.
+
+---
+
+### Malware susceptible
+
+* Trojan.
+* Adware.
+* Worm.
+
+---
+
+### Mejores mitigaciones
+
+* Firewall.
+* Patch.
+
+---
+
+# SCHOOL NETWORK
+
+---
+
+### Vulnerabilidades
+
+* Muchos usuarios.
+* Equipos compartidos.
+
+---
+
+### Malware
+
+* Worm.
+* Trojan.
+
+---
+
+### Riesgo
+
+Medio.
+
+---
+
+# HOSPITAL
+
+---
+
+### Vulnerabilidades
+
+* Equipos médicos antiguos.
+* Sistemas críticos.
+
+---
+
+### Malware
+
+* Ransomware.
+* Worm.
+
+---
+
+### Riesgo
+
+Muy alto.
+
+---
+
+# ENTERPRISE
+
+---
+
+### Vulnerabilidades
+
+* Gran cantidad de usuarios.
+* Servicios críticos.
+
+---
+
+### Malware
+
+* Trojan.
+* Ransomware.
+* Spyware.
+
+---
+
+# DATA CENTER
+
+---
+
+### Vulnerabilidades
+
+* Servicios críticos.
+* Grandes bases de datos.
+
+---
+
+### Malware
+
+* Ransomware.
+* Botnet.
+
+---
+
+# SMART FACTORY
+
+---
+
+### Vulnerabilidades
+
+* PLC.
+* IoT.
+* Sensores.
+
+---
+
+### Malware
+
+* Botnet.
+
+---
+
+# CRITICAL INFRASTRUCTURE
+
+---
+
+### Vulnerabilidades
+
+* Sistemas nacionales.
+* SCADA.
+
+---
+
+### Malware
+
+* Ransomware.
+* Botnet.
+
+---
+
+# 4. MITIGATION CONTROLS
+
+---
+
+# FIREWALL
+
+Reduce:
+
+```text
+β
+```
+
+---
+
+# PATCH
+
+Aumenta:
+
+```text
+γ
+```
+
+---
+
+# ISOLATION
+
+Rompe conexiones.
+
+---
+
+# IDS/IPS
+
+Detecta amenazas.
+
+---
+
+# BACKUP
+
+Recupera sistemas.
+
+---
+
+# Tabla
+
+| Control   | β | γ |
+| --------- | - | - |
+| Firewall  | ↓ |   |
+| Patch     |   | ↑ |
+| Isolation | ↓ |   |
+| IDS       | ↓ | ↑ |
+| Backup    |   | ↑ |
+
+---
+
+# 5. MATHEMATICAL MODEL
+
+---
+
+# ¿Por qué usamos ecuaciones diferenciales?
+
+Porque la cantidad de nodos infectados cambia con el tiempo.
+
+---
+
+## Variables
+
+```text
+S(t)
+
+I(t)
+
+R(t)
+```
+
+---
+
+## Interpretación
+
+S:
+
+Nodos sanos.
+
+I:
+
+Nodos infectados.
+
+R:
+
+Nodos recuperados.
+
+---
+
+# Modelo SIR
+
+```text
+dS/dt = -βSI/N
+
+dI/dt = βSI/N - γI
+
+dR/dt = γI
+```
+
+---
+
+# ¿Por qué sirve?
+
+Porque el malware se comporta como una epidemia.
+
+---
+
+# 6. MÉTODOS NUMÉRICOS
+
+---
+
+# Euler
+
+Método sencillo.
+
+---
+
+```text
+yₙ₊₁ = yₙ + hf(t,y)
+```
+
+---
+
+Ventajas:
+
+* Fácil.
+
+Desventajas:
+
+* Menos preciso.
+
+---
+
+# RK4
+
+Método de cuarto orden.
+
+---
+
+Más preciso.
+
+Más estable.
+
+---
+
+# ¿Por qué los usamos?
+
+Porque las ecuaciones no siempre pueden resolverse analíticamente.
+
+---
+
+# 7. DASHBOARD GUIDE
+
+---
+
+# Header
+
+Información general.
+
+---
+
+# Malware
+
+Selecciona la amenaza.
+
+---
+
+# Infrastructure
+
+Selecciona la red.
+
+---
+
+# Parameters
+
+Configura:
+
+* β.
+* γ.
+* N.
+* I₀.
+
+---
+
+# Simulation
+
+Visualiza la red.
+
+---
+
+# Analytics
+
+Mide resultados.
+
+---
+
+# Curves
+
+Muestra:
+
+```text
+S(t)
+
+I(t)
+
+R(t)
+```
+
+---
+
+# Logs
+
+Eventos.
+
+---
+
+# Controls
+
+Mitigaciones.
+
+---
+
+# Footer
+
+Resumen.
+
+---
+
+# 8. PARÁMETROS
+
+---
+
+# β
+
+Tasa de infección.
+
+---
+
+# γ
+
+Tasa de recuperación.
+
+---
+
+# N
+
+Población.
+
+---
+
+# I₀
+
+Infectados iniciales.
+
+---
+
+# Δt
+
+Paso temporal.
+
+---
+
+# R₀
+
+```text
+R₀ = β/γ
+```
+
+---
+
+Si:
+
+```text
+R₀ > 1
+```
+
+La infección crece.
+
+---
+
+Si:
+
+```text
+R₀ < 1
+```
+
+La infección desaparece.
+
+---
+
+# 9. REFERENCIAS
+
+Aquí pueden colocarse:
+
+* Modelo SIR.
+* Euler.
+* RK4.
+* Ciberseguridad.
+* NIST.
+* CISA.
+* ISO.
+
+---
+
+# 10. PROJECT INFORMATION
+
+---
+
+```text
+LAB-EDO
+
+Interactive Differential Equations Laboratory
+for Malware Propagation Modeling
+```
+
+---
+
+## Área
+
+```text
+Differential Equations
+Cybersecurity
+Mathematical Modeling
+```
+
+---
+
+## Integrantes
+
+```text
+Emiliangely Ramirez
+
+Maria Diaz
+
+Alfonso Saras
+
+Sebastian Andrade
+```
+
+---
+
+## Universidad
+
+```text
+[Universidad]
+```
+
+---
+
+## Cátedra
+
+```text
+Ecuaciones Diferenciales
+```
+
+---
+
+## Profesor
+
+```text
+[Nombre del profesor]
+```
+
+---
+
+# Diseño Final
+
+```text
+┌────────────────────────────┐
+│ ☰ DOCUMENTATION            │
+├────────────────────────────┤
+│                            │
+│ About LAB-EDO              │
+│ Malware Encyclopedia       │
+│ Infrastructure Guide       │
+│ Mathematical Model         │
+│ Numerical Methods          │
+│ Dashboard Guide            │
+│ References                 │
+│ Project Information        │
+│                            │
+│         Scroll ↓           │
+│                            │
+└────────────────────────────┘
+```
+
+Y honestamente, esto termina siendo casi un pequeño libro digital dentro del proyecto, pero muchísimo más fácil de programar para la IA que el sistema de páginas que habíamos pensado al principio. Además, si el profesor abre las tres rayitas, va a tener absolutamente toda la teoría del proyecto sin salir del dashboard.
+
+Ahora sí vamos a diseñar la **estructura profesional de carpetas de LAB-EDO**. Como usarás:
+
+* React
+* TypeScript
+* Vite
+* TailwindCSS
+* Shadcn/UI
+* Framer Motion
+* Recharts
+* Zustand
+
+La estructura debe estar pensada para los 12 módulos, el motor matemático y la simulación.
+
+---
+
+# ESTRUCTURA GENERAL
+
+```text
+LAB-EDO/
+
+├── public/
+├── src/
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
+└── tailwind.config.ts
+```
+
+---
+
+# PUBLIC
+
+Aquí van archivos estáticos.
+
+```text
+public/
+
+├── logo.png
+├── favicon.ico
+├── preview.png
+└── sounds/
+```
+
+---
+
+Los sonidos son opcionales:
+
+```text
+sounds/
+
+click.mp3
+warning.mp3
+infection.mp3
+```
+
+---
+
+# SRC
+
+Todo el proyecto vive aquí.
+
+```text
+src/
+
+├── assets/
+├── components/
+├── pages/
+├── layouts/
+├── data/
+├── math/
+├── simulation/
+├── store/
+├── hooks/
+├── types/
+├── utils/
+├── styles/
+└── lib/
+```
+
+---
+
+# ASSETS
+
+Las imágenes.
+
+```text
+assets/
+
+├── malware/
+├── infrastructures/
+├── controls/
+└── logos/
+```
+
+---
+
+# MALWARE
+
+```text
+malware/
+
+worm.png
+trojan.png
+ransomware.png
+botnet.png
+spyware.png
+adware.png
+```
+
+---
+
+# INFRASTRUCTURES
+
+```text
+infrastructures/
+
+hospital.png
+office.png
+school.png
+datacenter.png
+factory.png
+critical.png
+```
+
+---
+
+# CONTROLS
+
+```text
+controls/
+
+firewall.png
+patch.png
+backup.png
+ids.png
+isolation.png
+```
+
+---
+
+# COMPONENTS
+
+Aquí van todos los módulos.
+
+```text
+components/
+
+├── Header/
+├── MalwarePanel/
+├── InfrastructurePanel/
+├── SummaryPanel/
+├── ParametersPanel/
+├── NetworkPanel/
+├── MathPanel/
+├── AnalyticsPanel/
+├── CurvesPanel/
+├── LogsPanel/
+├── ControlsPanel/
+├── Footer/
+└── DocumentationPanel/
+```
+
+---
+
+# MÓDULO 1
+
+```text
+Header/
+
+Header.tsx
+```
+
+---
+
+# MÓDULO 2
+
+```text
+MalwarePanel/
+
+MalwarePanel.tsx
+MalwareCard.tsx
+```
+
+---
+
+# MÓDULO 3
+
+```text
+InfrastructurePanel/
+
+InfrastructurePanel.tsx
+InfrastructureCard.tsx
+```
+
+---
+
+# MÓDULO 4
+
+```text
+SummaryPanel/
+
+SummaryPanel.tsx
+```
+
+---
+
+# MÓDULO 5
+
+```text
+ParametersPanel/
+
+ParametersPanel.tsx
+ParameterSlider.tsx
+```
+
+---
+
+# MÓDULO 6
+
+```text
+NetworkPanel/
+
+NetworkPanel.tsx
+Node.tsx
+Connection.tsx
+```
+
+---
+
+# MÓDULO 7
+
+```text
+MathPanel/
+
+MathPanel.tsx
+Equation.tsx
+```
+
+---
+
+# MÓDULO 8
+
+```text
+AnalyticsPanel/
+
+AnalyticsPanel.tsx
+MetricCard.tsx
+```
+
+---
+
+# MÓDULO 9
+
+```text
+CurvesPanel/
+
+CurvesPanel.tsx
+SIRChart.tsx
+```
+
+---
+
+# MÓDULO 10
+
+```text
+LogsPanel/
+
+LogsPanel.tsx
+LogItem.tsx
+```
+
+---
+
+# MÓDULO 11
+
+```text
+ControlsPanel/
+
+ControlsPanel.tsx
+ControlCard.tsx
+```
+
+---
+
+# MÓDULO 12
+
+```text
+Footer/
+
+Footer.tsx
+```
+
+---
+
+# DOCUMENTATION PANEL
+
+```text
+DocumentationPanel/
+
+DocumentationPanel.tsx
+Section.tsx
+```
+
+---
+
+# PAGES
+
+Como realmente es un solo dashboard:
+
+```text
+pages/
+
+Dashboard.tsx
+```
+
+---
+
+# LAYOUTS
+
+```text
+layouts/
+
+DashboardLayout.tsx
+```
+
+---
+
+Este archivo organiza:
+
+```text
+Header
+
+Dashboard
+
+Footer
+```
+
+---
+
+# DATA
+
+Aquí va toda la información.
+
+---
+
+```text
+data/
+
+malwares.ts
+infrastructures.ts
+controls.ts
+documentation.ts
+```
+
+---
+
+# MALWARES
+
+```typescript
+export const malwares = [
+{
+  name: "Worm",
+  beta: 1.8,
+  gamma: 0.3
+}
+]
+```
+
+---
+
+# INFRASTRUCTURES
+
+```typescript
+export const infrastructures = [
+{
+  name: "Hospital",
+  nodes: 120
+}
+]
+```
+
+---
+
+# CONTROLS
+
+```typescript
+Firewall
+
+Patch
+
+IDS
+
+Backup
+```
+
+---
+
+# DOCUMENTATION
+
+Todo el contenido de las tres rayitas.
+
+---
+
+# MATH
+
+Esta carpeta es una de las más importantes.
+
+```text
+math/
+
+sir.ts
+euler.ts
+rk4.ts
+metrics.ts
+```
+
+---
+
+# SIR
+
+Sistema de ecuaciones.
+
+---
+
+# EULER
+
+Método numérico.
+
+---
+
+# RK4
+
+Runge-Kutta.
+
+---
+
+# METRICS
+
+R₀, porcentajes, etc.
+
+---
+
+# SIMULATION
+
+Motor del laboratorio.
+
+```text
+simulation/
+
+infection.ts
+recovery.ts
+network.ts
+controls.ts
+events.ts
+```
+
+---
+
+# infection.ts
+
+Infecta nodos.
+
+---
+
+# recovery.ts
+
+Recupera nodos.
+
+---
+
+# network.ts
+
+Conecta nodos.
+
+---
+
+# controls.ts
+
+Aplica mitigaciones.
+
+---
+
+# events.ts
+
+Genera logs.
+
+---
+
+# STORE
+
+Yo usaría Zustand.
+
+---
+
+```text
+store/
+
+simulationStore.ts
+```
+
+---
+
+Aquí vive TODO.
+
+```typescript
+beta
+
+gamma
+
+malware
+
+infrastructure
+
+S
+
+I
+
+R
+
+logs
+
+controls
+```
+
+---
+
+Todos los módulos leen de aquí.
+
+---
+
+# HOOKS
+
+```text
+hooks/
+
+useSimulation.ts
+useAnimation.ts
+useMetrics.ts
+useLogs.ts
+```
+
+---
+
+# useSimulation
+
+Corre la simulación.
+
+---
+
+# useAnimation
+
+Animaciones.
+
+---
+
+# useMetrics
+
+Calcula métricas.
+
+---
+
+# TYPES
+
+Aquí van las interfaces.
+
+```text
+types/
+
+Malware.ts
+Infrastructure.ts
+Control.ts
+Node.ts
+Log.ts
+```
+
+---
+
+Ejemplo:
+
+```typescript
+export interface Node {
+  id: number
+  state: string
+}
+```
+
+---
+
+# UTILS
+
+Funciones pequeñas.
+
+```text
+utils/
+
+formatTime.ts
+calculateR0.ts
+generateReport.ts
+```
+
+---
+
+# STYLES
+
+Aunque Tailwind hace casi todo.
+
+```text
+styles/
+
+globals.css
+animations.css
+```
+
+---
+
+# LIB
+
+Configuraciones.
+
+```text
+lib/
+
+mathjax.ts
+recharts.ts
+toast.ts
+```
+
+---
+
+# ESTRUCTURA COMPLETA
+
+```text
+LAB-EDO
+
+public/
+
+src/
+
+├── assets/
+│
+├── components/
+│   ├── Header/
+│   ├── MalwarePanel/
+│   ├── InfrastructurePanel/
+│   ├── SummaryPanel/
+│   ├── ParametersPanel/
+│   ├── NetworkPanel/
+│   ├── MathPanel/
+│   ├── AnalyticsPanel/
+│   ├── CurvesPanel/
+│   ├── LogsPanel/
+│   ├── ControlsPanel/
+│   ├── Footer/
+│   └── DocumentationPanel/
+│
+├── pages/
+│
+├── layouts/
+│
+├── data/
+│
+├── math/
+│
+├── simulation/
+│
+├── store/
+│
+├── hooks/
+│
+├── types/
+│
+├── utils/
+│
+├── styles/
+│
+└── lib/
+```
+
+---
+
+# MI RECOMENDACIÓN EXTRA
+
+Yo agregaría una carpeta más:
+
+```text
+constants/
+```
+
+---
+
+```text
+constants/
+
+colors.ts
+parameters.ts
+status.ts
+```
+
+---
+
+Por ejemplo:
+
+```typescript
+export const STATUS = {
+  HEALTHY: "green",
+  CRITICAL: "red"
+}
+```
+
+---
+
+# Nivel profesional
+
+Con esta estructura LAB-EDO se parece muchísimo a un proyecto real de:
+
+* React profesional.
+* Dashboard empresarial.
+* Aplicación científica.
+* Laboratorio de simulación.
+
+Y lo mejor es que la IA entiende perfectamente este tipo de organización, así que le resultará mucho más fácil generar todo el proyecto completo.

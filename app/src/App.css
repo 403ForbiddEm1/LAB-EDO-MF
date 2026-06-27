@@ -1,0 +1,10 @@
+/*
+  LAB-EDO — App.css
+  ─────────────────────────────────────────────────────────────
+  All styles now live in src/index.css (Tailwind entry point).
+  This file is intentionally empty to avoid double-loading.
+
+  If you need component-scoped overrides that don't belong in
+  index.css, add them here — they'll be imported after
+  index.css in Home.tsx via "import '../App.css'".
+*/
